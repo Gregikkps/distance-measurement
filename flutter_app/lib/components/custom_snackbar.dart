@@ -15,7 +15,7 @@ class CustomSnackbar {
         ),
       ),
       backgroundColor: Colors.red,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: 4),
     );
 
     ScaffoldMessenger.of(context).showSnackBar(snackbar);

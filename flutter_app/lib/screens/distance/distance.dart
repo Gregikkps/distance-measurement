@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/custom_snackbar.dart';
 import 'package:flutter_app/screens/distance/distance_view.dart';
@@ -23,7 +22,7 @@ class DistanceScreenController extends State<DistanceScreen> {
     CustomSnackbar.showError(context, errorString);
   }
 
-  void fetchData() async {
+  Future<void> fetchData() async {
     if (isFetchingData) return;
     setState(() {
       isFetchingData = true;
@@ -31,18 +30,19 @@ class DistanceScreenController extends State<DistanceScreen> {
     try {
       final response = await http
           .get(Uri.parse('http://192.168.4.22/'))
-          .timeout(const Duration(seconds: 1), onTimeout: () {
+          .timeout(const Duration(seconds: 5), onTimeout: () {
+        isConnected = false;
         return http.Response(
             'Error: ClientException with SocketException: Connection timed out (OS Error: Connection timed out, errno = 110)',
             408);
       });
       if (response.statusCode == 200) {
         setState(() {
-          if (int.parse(response.body) < maxDistance) {
-            distance = int.parse(response.body);
+          final int parsedBody = int.parse(response.body);
+          if (parsedBody < maxDistance) {
+            distance = parsedBody;
             isConnected = true;
-          }
-          if (int.parse(response.body) >= maxDistance) {
+          } else {
             distance = 0;
             isConnected = true;
           }
@@ -50,7 +50,6 @@ class DistanceScreenController extends State<DistanceScreen> {
       } else {
         final errorString = "${response.statusCode.toString()} ${response.body}";
         showCustomSnackbarError(errorString);
-        print('Error: ${response.statusCode}');
       }
     } catch (e) {
       showCustomSnackbarError(e.toString());
@@ -58,8 +57,6 @@ class DistanceScreenController extends State<DistanceScreen> {
         isConnected = false;
         distance = 0;
       });
-
-      print('Error: $e');
     } finally {
       setState(() {
         isFetchingData = false;
@@ -70,10 +67,18 @@ class DistanceScreenController extends State<DistanceScreen> {
   @override
   void initState() {
     super.initState();
-    Timer.periodic(const Duration(seconds: 2), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (Timer timer) {
       fetchData();
     });
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    timer?.cancel();
+  }
+
+  Timer? timer;
 
   @override
   Widget build(BuildContext context) => DistanceScreenView(this);
