@@ -19,7 +19,7 @@ class BlackCard extends StatelessWidget {
           color: AppColors.primaryColor
         ),
         child: Padding(
-          padding: AppDistance.standardPadding,
+          padding: AppDistance.buttonTextPadding,
           child: child,
         ),
       ),

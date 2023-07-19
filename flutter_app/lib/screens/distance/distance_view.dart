@@ -35,44 +35,47 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
               ),
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Center(
-                child: BlackCard(
-                  child: Padding(
-                    padding: AppDistance.standardPadding,
-                    child: Text(
-                      style: CustomTextStyle.bodyM.copyWith(
-                        color: widget.state.isConnected ? Colors.green : Colors.redAccent,
+          Padding(
+            padding: AppDistance.standardPadding,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Center(
+                  child: BlackCard(
+                    child: Padding(
+                      padding: AppDistance.standardPadding,
+                      child: Text(
+                        style: CustomTextStyle.bodyM.copyWith(
+                          color: widget.state.isConnected ? Colors.green : Colors.redAccent,
+                        ),
+                        widget.state.isConnected ? AppText.connected : AppText.disconnected,
                       ),
-                      widget.state.isConnected ? AppText.connected : AppText.disconnected,
                     ),
                   ),
                 ),
-              ),
-              Center(
-                child: BlackCard(
-                  child: Padding(
-                    padding: AppDistance.standardPadding,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          '${AppText.distance}:',
-                          style: CustomTextStyle.bodyM,
-                        ),
-                        Text(
-                          ' ${widget.state.distance} ${AppText.unitCm}',
-                          style: CustomTextStyle.bodyM,
-                        ),
-                      ],
+                Center(
+                  child: BlackCard(
+                    child: Padding(
+                      padding: AppDistance.standardPadding,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            '${AppText.distance}:',
+                            style: CustomTextStyle.bodyM,
+                          ),
+                          Text(
+                            ' ${widget.state.distance} ${AppText.unitCm}',
+                            style: CustomTextStyle.bodyM,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
