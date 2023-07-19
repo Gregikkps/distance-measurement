@@ -15,10 +15,21 @@ class DistanceScreenController extends State<DistanceScreen> {
   int distance = 0;
   bool isConnected = false;
   int maxDistance = 350;
+  bool isFetchingData = false;
+  String error = '';
 
   void fetchData() async {
+    print(isFetchingData);
+    if (isFetchingData) return;
+    setState(() {
+      isFetchingData = true;
+    });
     try {
-      final response = await http.get(Uri.parse('http://192.168.4.22/'));
+      final response = await http
+          .get(Uri.parse('http://192.168.4.22/'))
+          .timeout(const Duration(seconds: 2), onTimeout: () {
+        return http.Response('Error', 408);
+      });
       if (response.statusCode == 200) {
         setState(() {
           if (int.parse(response.body) < maxDistance) {
@@ -30,23 +41,29 @@ class DistanceScreenController extends State<DistanceScreen> {
             isConnected = true;
           }
         });
+        print('200');
       } else {
         print('Error: ${response.statusCode}');
       }
     } catch (e) {
+      print('catch e');
       setState(() {
         isConnected = false;
         distance = 0;
       });
 
       print('Error: $e');
+    } finally {
+      print('finally');
+      setState(() {
+        isFetchingData = false;
+      });
     }
   }
 
   @override
   void initState() {
     super.initState();
-    fetchData();
     Timer.periodic(const Duration(seconds: 1), (timer) {
       fetchData();
     });
