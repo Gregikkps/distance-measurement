@@ -14,7 +14,7 @@ class DistanceScreen extends StatefulWidget {
 class DistanceScreenController extends State<DistanceScreen> {
   int distance = 0;
   bool isConnected = false;
-  int maxDistance = 100;
+  int maxDistance = 350;
 
   void fetchData() async {
     try {
@@ -31,7 +31,6 @@ class DistanceScreenController extends State<DistanceScreen> {
           }
         });
       } else {
-        // isConnected = false;
         print('Error: ${response.statusCode}');
       }
     } catch (e) {
