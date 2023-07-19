@@ -12,22 +12,34 @@ class DistanceScreen extends StatefulWidget {
 }
 
 class DistanceScreenController extends State<DistanceScreen> {
-  String distance = '';
+  int distance = 0;
   bool isConnected = false;
+  int maxDistance = 100;
+
   void fetchData() async {
     try {
       final response = await http.get(Uri.parse('http://192.168.4.22/'));
       if (response.statusCode == 200) {
         setState(() {
-          distance = '${response.body} cm';
-          isConnected = true;
+          if (int.parse(response.body) < maxDistance) {
+            distance = int.parse(response.body);
+            isConnected = true;
+          }
+          if (int.parse(response.body) >= maxDistance) {
+            distance = 0;
+            isConnected = true;
+          }
         });
       } else {
-        isConnected = false;
+        // isConnected = false;
         print('Error: ${response.statusCode}');
       }
     } catch (e) {
-      isConnected = false;
+      setState(() {
+        isConnected = false;
+        distance = 0;
+      });
+
       print('Error: $e');
     }
   }

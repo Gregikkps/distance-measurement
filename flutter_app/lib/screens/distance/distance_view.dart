@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/black_card.dart';
 import 'package:flutter_app/components/custom_appbar.dart';
+import 'package:flutter_app/resources/app_distance/app_distance.dart';
 import 'package:flutter_app/resources/text/app_text.dart';
+import 'package:flutter_app/resources/text/app_text_style.dart';
 
 import 'package:flutter_app/screens/distance/distance.dart';
 
@@ -38,15 +40,35 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
             children: [
               Center(
                 child: BlackCard(
-                  child: Text(
-                    widget.state.isConnected ? AppText.connected : AppText.disconnected,
+                  child: Padding(
+                    padding: AppDistance.standardPadding,
+                    child: Text(
+                      style: CustomTextStyle.bodyM.copyWith(
+                        color: widget.state.isConnected ? Colors.green : Colors.redAccent,
+                      ),
+                      widget.state.isConnected ? AppText.connected : AppText.disconnected,
+                    ),
                   ),
                 ),
               ),
               Center(
                 child: BlackCard(
-                  child: Text(
-                    '${AppText.distance}: ${widget.state.distance}',
+                  child: Padding(
+                    padding: AppDistance.standardPadding,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          '${AppText.distance}:',
+                          style: CustomTextStyle.bodyM,
+                        ),
+                        Text(
+                          ' ${widget.state.distance} ${AppText.unitCm}',
+                          style: CustomTextStyle.bodyM,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

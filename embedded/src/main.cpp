@@ -25,9 +25,10 @@ void handleRoot()
   digitalWrite(trigPin, LOW);
   durationValue = pulseIn(echoPin, HIGH);
   distance = durationValue * 0.034 / 2;
-  String response = "Distance: " + String(distance);
+  String response = String(distance);
   server.send(200, "text/plain", response);
   Serial.println("Received HTTP GET request");
+  Serial.println(response);
 }
 
 void setup()
@@ -47,11 +48,8 @@ void setup()
 
 void loop()
 {
-  IPAddress IP = WiFi.softAPIP();
-  Serial.print("Access Point IP address: ");
-  Serial.println(IP);
+
   server.handleClient();
-  // Dodatkowe instrukcje debugowania
   if (Serial.available())
   {
     String command = Serial.readStringUntil('\n');
