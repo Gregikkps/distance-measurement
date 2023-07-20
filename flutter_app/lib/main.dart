@@ -20,7 +20,7 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-    debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       theme: CustomThemeData.themeData,
       home: const DistanceScreen(),
     );
