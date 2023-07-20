@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:distance_measurement_app/resources/tools/network_parametrs_inspector.dart';
 import 'package:flutter/material.dart';
 import 'package:distance_measurement_app/components/custom_snackbar.dart';
 import 'package:distance_measurement_app/resources/app_config.dart';
@@ -59,7 +60,9 @@ class DistanceScreenController extends State<DistanceScreen> {
   @override
   void initState() {
     super.initState();
+    NetworkParametersInspector().initNetworkInfo();
     Timer.periodic(AppConfig.frequency, (Timer timer) {
+      NetworkParametersInspector().initNetworkInfo();
       fetchDataAndHandleState();
     });
   }
