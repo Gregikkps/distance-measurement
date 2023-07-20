@@ -22,6 +22,8 @@ class DistanceScreenController extends State<DistanceScreen> {
     CustomSnackbar.showError(context, errorString);
   }
 
+  void checkInternetConnection() {}
+
   void fetchDataAndHandleState() {
     if (isFetchingData) return;
 
@@ -60,9 +62,9 @@ class DistanceScreenController extends State<DistanceScreen> {
   @override
   void initState() {
     super.initState();
-    NetworkParametersInspector().initNetworkInfo();
+    NetworkParametersInspector().getWifiGatewayIP();
     Timer.periodic(AppConfig.frequency, (Timer timer) {
-      NetworkParametersInspector().initNetworkInfo();
+      NetworkParametersInspector().getWifiGatewayIP();
       fetchDataAndHandleState();
     });
   }
