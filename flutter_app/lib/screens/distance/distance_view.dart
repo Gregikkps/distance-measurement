@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components/black_card.dart';
-import 'package:flutter_app/components/custom_appbar.dart';
-import 'package:flutter_app/resources/app_distance/app_distance.dart';
-import 'package:flutter_app/resources/text/app_text.dart';
-import 'package:flutter_app/resources/text/app_text_style.dart';
+import 'package:distance_measurement_app/components/black_card.dart';
+import 'package:distance_measurement_app/components/custom_appbar.dart';
+import 'package:distance_measurement_app/resources/app_distance/app_distance.dart';
+import 'package:distance_measurement_app/resources/text/app_text.dart';
+import 'package:distance_measurement_app/resources/text/app_text_style.dart';
 
-import 'package:flutter_app/screens/distance/distance.dart';
+import 'package:distance_measurement_app/screens/distance/distance.dart';
 
 class DistanceScreenView extends StatefulWidget {
   final DistanceScreenController state;

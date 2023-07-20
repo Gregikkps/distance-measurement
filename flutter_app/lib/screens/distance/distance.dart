@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components/custom_snackbar.dart';
-import 'package:flutter_app/screens/distance/distance_view.dart';
-import 'package:http/http.dart' as http;
+import 'package:distance_measurement_app/components/custom_snackbar.dart';
+import 'package:distance_measurement_app/resources/app_config.dart';
+import 'package:distance_measurement_app/screens/distance/distance_utils.dart';
+import 'package:distance_measurement_app/screens/distance/distance_view.dart';
 
 class DistanceScreen extends StatefulWidget {
   const DistanceScreen({super.key});
@@ -14,71 +15,54 @@ class DistanceScreen extends StatefulWidget {
 class DistanceScreenController extends State<DistanceScreen> {
   int distance = 0;
   bool isConnected = false;
-  int maxDistance = 350;
   bool isFetchingData = false;
-  String error = '';
 
   void showCustomSnackbarError(String errorString) {
     CustomSnackbar.showError(context, errorString);
   }
 
-  Future<void> fetchData() async {
+  void fetchDataAndHandleState() {
     if (isFetchingData) return;
+
     setState(() {
       isFetchingData = true;
     });
-    try {
-      final response = await http
-          .get(Uri.parse('http://192.168.4.22/'))
-          .timeout(const Duration(seconds: 5), onTimeout: () {
-        isConnected = false;
-        return http.Response(
-            'Error: ClientException with SocketException: Connection timed out (OS Error: Connection timed out, errno = 110)',
-            408);
-      });
+    DistanceUtils().fetchDataFromServer().then((response) {
       if (response.statusCode == 200) {
+        final int parsedBody = DistanceUtils().parseDistance(response.body);
         setState(() {
-          final int parsedBody = int.parse(response.body);
-          if (parsedBody < maxDistance) {
-            distance = parsedBody;
-            isConnected = true;
-          } else {
-            distance = 0;
-            isConnected = true;
-          }
+          distance = parsedBody;
+          isConnected = true;
         });
       } else {
         final errorString = "${response.statusCode.toString()} ${response.body}";
         showCustomSnackbarError(errorString);
+        setState(() {
+          isConnected = false;
+          distance = 0;
+        });
       }
-    } catch (e) {
-      showCustomSnackbarError(e.toString());
+    }).catchError((e) {
+      final errorMessage = e.toString();
+      showCustomSnackbarError(errorMessage);
       setState(() {
         isConnected = false;
         distance = 0;
       });
-    } finally {
+    }).whenComplete(() {
       setState(() {
         isFetchingData = false;
       });
-    }
+    });
   }
 
   @override
   void initState() {
     super.initState();
-    Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-      fetchData();
+    Timer.periodic(AppConfig.frequency, (Timer timer) {
+      fetchDataAndHandleState();
     });
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-    timer?.cancel();
-  }
-
-  Timer? timer;
 
   @override
   Widget build(BuildContext context) => DistanceScreenView(this);

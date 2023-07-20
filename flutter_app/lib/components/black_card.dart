@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/resources/app_distance/app_distance.dart';
-import 'package:flutter_app/resources/theme/app_colors.dart';
+import 'package:distance_measurement_app/resources/app_distance/app_distance.dart';
+import 'package:distance_measurement_app/resources/theme/app_colors.dart';
 
 class BlackCard extends StatelessWidget {
   final Widget child;

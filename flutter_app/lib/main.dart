@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 import 'package:flutter/material.dart';
-import 'package:flutter_app/resources/theme/theme_data.dart';
-import 'package:flutter_app/screens/distance/distance.dart';
+import 'package:distance_measurement_app/resources/theme/theme_data.dart';
+import 'package:distance_measurement_app/screens/distance/distance.dart';
 
 
 void main() {

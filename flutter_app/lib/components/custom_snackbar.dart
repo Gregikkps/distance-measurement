@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/resources/theme/app_colors.dart';
+import 'package:distance_measurement_app/resources/theme/app_colors.dart';
 
 class CustomSnackbar {
   static void showError(BuildContext context, String errorMessage) {
