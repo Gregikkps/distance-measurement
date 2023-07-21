@@ -21,13 +21,13 @@ class DistanceScreenView extends StatefulWidget {
 class _DistanceScreenViewState extends State<DistanceScreenView> {
   @override
   Widget build(BuildContext context) {
+    AppState appState = Provider.of<AppState>(context);
     return Scaffold(
       appBar: CustomAppBar(
         title: const Text(AppText.title),
         actions: [
           Consumer(
             builder: (context, value, child) {
-              AppState appState = Provider.of<AppState>(context);
               return Text(appState.wifiGatewayIP);
             },
           )
@@ -57,9 +57,9 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
                       padding: AppDistance.standardPadding,
                       child: Text(
                         style: CustomTextStyle.bodyM.copyWith(
-                          color: widget.state.isConnected ? Colors.green : Colors.redAccent,
+                          color: appState.isConnected ? Colors.green : Colors.redAccent,
                         ),
-                        widget.state.isConnected ? AppText.connected : AppText.disconnected,
+                        appState.isConnected ? AppText.connected : AppText.disconnected,
                       ),
                     ),
                   ),
@@ -76,9 +76,13 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
                             '${AppText.distance}:',
                             style: CustomTextStyle.bodyM,
                           ),
-                          Text(
-                            ' ${widget.state.distance} ${AppText.unitCm}',
-                            style: CustomTextStyle.bodyM,
+                          Consumer(
+                            builder: (context, value, child) {
+                              return Text(
+                                ' ${appState.distane} ${AppText.unitCm}',
+                                style: CustomTextStyle.bodyM,
+                              );
+                            },
                           ),
                         ],
                       ),

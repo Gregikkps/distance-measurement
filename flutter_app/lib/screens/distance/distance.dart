@@ -16,10 +16,6 @@ class DistanceScreen extends StatefulWidget {
 }
 
 class DistanceScreenController extends State<DistanceScreen> {
-  int distance = 0;
-  bool isConnected = false;
-  bool isFetchingData = false;
-
   void showCustomSnackbarError(String errorString) {
     CustomSnackbar.showError(context, errorString);
   }
@@ -31,42 +27,33 @@ class DistanceScreenController extends State<DistanceScreen> {
 
   void fetchDataAndHandleState() {
     final appState = Provider.of<AppState>(context, listen: false);
-    if (appState.wifiGatewayIP != AppConfig.wifiGatewayIP) {
-      return;
-    }
-    if (isFetchingData) return;
+    // if (appState.wifiGatewayIP != AppConfig.wifiGatewayIP) {
+    //   return;
+    // }
+    if (appState.isFetchingData) return;
 
-    setState(() {
-      isFetchingData = true;
-    });
+    appState.setFetchingData();
+
     DistanceUtils().fetchDataFromServer().then((response) {
       if (response.statusCode == 200) {
         final int parsedBody = DistanceUtils().parseDistance(response.body);
-        setState(() {
-          distance = parsedBody;
-          isConnected = true;
-        });
+        appState.setDistance(parsedBody);
+        appState.setConnect();
       } else {
         final errorString = "${response.statusCode.toString()} ${response.body}";
         showCustomSnackbarError(errorString);
-        setState(() {
-          isConnected = false;
-          distance = 0;
-          appState.resetWifiGatewayIP();
-        });
+        appState.resetConnect();
+        appState.resetDistance();
+        appState.resetWifiGatewayIP();
       }
     }).catchError((e) {
       final errorMessage = e.toString();
       showCustomSnackbarError(errorMessage);
-      setState(() {
-        isConnected = false;
-        distance = 0;
-        appState.resetWifiGatewayIP();
-      });
+      appState.resetConnect();
+      appState.resetDistance();
+      appState.resetWifiGatewayIP();
     }).whenComplete(() {
-      setState(() {
-        isFetchingData = false;
-      });
+      appState.resetFetchingData();
     });
   }
 
