@@ -7,12 +7,14 @@ import 'package:flutter/services.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../../provider/app_state.dart';
+
 class NetworkParametersInspector {
   String connectionStatus = 'Unknown';
   final NetworkInfo _networkInfo = NetworkInfo();
   String? wifiName, wifiBSSID, wifiIPv4, wifiIPv6, wifiGatewayIP, wifiBroadcast, wifiSubmask;
 
-  Future<void> getWifiGatewayIP() async {
+  Future<void> getWifiGatewayIP(AppState appState) async {
     try {
       wifiGatewayIP = await _networkInfo.getWifiGatewayIP();
     } on PlatformException catch (e) {
@@ -21,7 +23,10 @@ class NetworkParametersInspector {
     }
 
     wifiGatewayIP = wifiGatewayIP;
-    log(wifiGatewayIP ?? 'null');
+
+    if (wifiGatewayIP != null) {
+      appState.setWifiGatewayIP(wifiGatewayIP!);
+    }
   }
 
   Future<void> getAllNetworkInfo() async {

@@ -3,8 +3,9 @@ import 'package:distance_measurement_app/resources/theme/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
+  final List<Widget>? actions;
 
-  const CustomAppBar({super.key, required this.title});
+  const CustomAppBar({super.key, required this.title, this.actions});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -16,12 +17,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: AppColors.primaryColor,
       centerTitle: true,
       elevation: 0.0,
-      leading: IconButton(
-        icon: const Icon(Icons.menu),
-        onPressed: () {
-          // Do something
-        },
-      ),
+      actions: actions,
+      foregroundColor: AppColors.textColor,
     );
   }
 }

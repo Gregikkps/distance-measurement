@@ -6,6 +6,9 @@ import 'package:distance_measurement_app/resources/text/app_text.dart';
 import 'package:distance_measurement_app/resources/text/app_text_style.dart';
 
 import 'package:distance_measurement_app/screens/distance/distance.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/app_state.dart';
 
 class DistanceScreenView extends StatefulWidget {
   final DistanceScreenController state;
@@ -19,8 +22,16 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        title: Text(AppText.title),
+      appBar: CustomAppBar(
+        title: const Text(AppText.title),
+        actions: [
+          Consumer(
+            builder: (context, value, child) {
+              AppState appState = Provider.of<AppState>(context);
+              return Text(appState.wifiGatewayIP);
+            },
+          )
+        ],
       ),
       body: Stack(
         children: [

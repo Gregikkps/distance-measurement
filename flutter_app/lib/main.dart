@@ -1,12 +1,20 @@
-// ignore_for_file: avoid_print
+import 'package:distance_measurement_app/provider/app_state.dart';
 import 'package:flutter/material.dart';
 import 'package:distance_measurement_app/resources/theme/theme_data.dart';
 import 'package:distance_measurement_app/screens/distance/distance.dart';
-
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  final appState = AppState();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: appState),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
