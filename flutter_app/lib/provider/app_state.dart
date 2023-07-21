@@ -9,4 +9,9 @@ class AppState with ChangeNotifier {
     _wifiGatewayIP = currentWifiGatewayIP;
     notifyListeners();
   }
+
+  void resetWifiGatewayIP() {
+    _wifiGatewayIP = '';
+    notifyListeners();
+  }
 }

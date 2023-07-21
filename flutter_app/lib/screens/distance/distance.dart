@@ -24,9 +24,16 @@ class DistanceScreenController extends State<DistanceScreen> {
     CustomSnackbar.showError(context, errorString);
   }
 
-  void checkInternetConnection() {}
+  void getGatewayIP() {
+    final appState = Provider.of<AppState>(context, listen: false);
+    NetworkParametersInspector().getWifiGatewayIP(appState);
+  }
 
   void fetchDataAndHandleState() {
+    final appState = Provider.of<AppState>(context, listen: false);
+    if (appState.wifiGatewayIP != AppConfig.wifiGatewayIP) {
+      return;
+    }
     if (isFetchingData) return;
 
     setState(() {
@@ -45,6 +52,7 @@ class DistanceScreenController extends State<DistanceScreen> {
         setState(() {
           isConnected = false;
           distance = 0;
+          appState.resetWifiGatewayIP();
         });
       }
     }).catchError((e) {
@@ -53,6 +61,7 @@ class DistanceScreenController extends State<DistanceScreen> {
       setState(() {
         isConnected = false;
         distance = 0;
+        appState.resetWifiGatewayIP();
       });
     }).whenComplete(() {
       setState(() {
@@ -64,9 +73,8 @@ class DistanceScreenController extends State<DistanceScreen> {
   @override
   void initState() {
     super.initState();
-    final appState = Provider.of<AppState>(context, listen: false);
     Timer.periodic(AppConfig.frequency, (Timer timer) {
-      NetworkParametersInspector().getWifiGatewayIP(appState);
+      getGatewayIP();
       fetchDataAndHandleState();
     });
   }
