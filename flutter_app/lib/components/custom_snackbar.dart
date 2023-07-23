@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:distance_measurement_app/resources/app_config.dart';
 import 'package:distance_measurement_app/resources/theme/app_colors.dart';
+import 'package:flutter/material.dart';
 
 class CustomSnackbar {
   static void showError(BuildContext context, String errorMessage) {
@@ -7,15 +8,17 @@ class CustomSnackbar {
       content: ListTile(
         leading: const Icon(
           Icons.warning,
-          color: AppColors.textColor,
+          color: AppColors.whiteTextColor,
         ),
         title: Text(
           errorMessage,
-          style: const TextStyle(color: AppColors.textColor),
+          style: const TextStyle(
+            color: AppColors.whiteTextColor,
+          ),
         ),
       ),
-      backgroundColor: Colors.red,
-      duration: const Duration(seconds: 4),
+      backgroundColor: AppColors.errorRed,
+      duration: AppConfig.snakcbarDuration,
     );
 
     ScaffoldMessenger.of(context).showSnackBar(snackbar);

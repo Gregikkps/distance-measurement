@@ -27,9 +27,9 @@ class DistanceScreenController extends State<DistanceScreen> {
 
   void fetchDataAndHandleState() {
     final appState = Provider.of<AppState>(context, listen: false);
-    // if (appState.wifiGatewayIP != AppConfig.wifiGatewayIP) {
-    //   return;
-    // }
+    if (appState.wifiGatewayIP != AppConfig.wifiGatewayIP) {
+      return;
+    }
     if (appState.isFetchingData) return;
 
     appState.setFetchingData();

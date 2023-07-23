@@ -5,4 +5,6 @@ class AppConfig {
   static Duration timeoutDuration = const Duration(seconds: 5);
   static Duration frequency = const Duration(seconds: 1);
   static Uri distanceUri = Uri.parse('http://$wifiIp/');
+  static Duration snakcbarDuration = const Duration(seconds: 4);
+  static int lightModeBackgroundOpacity = 350;
 }

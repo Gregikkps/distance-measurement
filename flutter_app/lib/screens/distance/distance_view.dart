@@ -1,13 +1,14 @@
+import 'package:distance_measurement_app/components/custom_background.dart';
+import 'package:distance_measurement_app/resources/app_assets/app_assets.dart';
+import 'package:distance_measurement_app/resources/theme/app_colors.dart';
+import 'package:distance_measurement_app/resources/theme/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:distance_measurement_app/components/black_card.dart';
+import 'package:distance_measurement_app/components/custom_card.dart';
 import 'package:distance_measurement_app/components/custom_appbar.dart';
 import 'package:distance_measurement_app/resources/app_distance/app_distance.dart';
 import 'package:distance_measurement_app/resources/text/app_text.dart';
-import 'package:distance_measurement_app/resources/text/app_text_style.dart';
-
 import 'package:distance_measurement_app/screens/distance/distance.dart';
 import 'package:provider/provider.dart';
-
 import '../../provider/app_state.dart';
 
 class DistanceScreenView extends StatefulWidget {
@@ -22,65 +23,53 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
   @override
   Widget build(BuildContext context) {
     AppState appState = Provider.of<AppState>(context);
+    final textTheme = Theme.of(context).extension<TextThemeExtension>()!;
     return Scaffold(
-      appBar: CustomAppBar(
-        title: const Text(AppText.title),
-        actions: [
-          Consumer(
-            builder: (context, value, child) {
-              return Text(appState.wifiGatewayIP);
-            },
-          )
-        ],
+      appBar: const CustomAppBar(
+        title: Text(AppText.title),
       ),
       body: Stack(
         children: [
-          ColorFiltered(
-            colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.srcOver),
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/background.jpg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
+          CustomBackground(image: AppAssets.distanceBackground),
           Padding(
             padding: AppDistance.standardPadding,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Center(
-                  child: BlackCard(
+                  child: CustomCard(
                     child: Padding(
                       padding: AppDistance.standardPadding,
                       child: Text(
-                        style: CustomTextStyle.bodyM.copyWith(
-                          color: appState.isConnected ? Colors.green : Colors.redAccent,
-                        ),
                         appState.isConnected ? AppText.connected : AppText.disconnected,
+                        style: textTheme.bodyLarge.copyWith(
+                          color: appState.isConnected
+                              ? AppColors.greenTextColor
+                              : AppColors.redTextColor,
+                        ),
                       ),
                     ),
                   ),
                 ),
+                Consumer(
+                  builder: (context, value, child) {
+                    return Text(appState.wifiGatewayIP);
+                  },
+                ),
                 Center(
-                  child: BlackCard(
+                  child: CustomCard(
                     child: Padding(
                       padding: AppDistance.standardPadding,
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text(
-                            '${AppText.distance}:',
-                            style: CustomTextStyle.bodyM,
-                          ),
+                          Text('${AppText.distance}:', style: textTheme.bodyLarge),
                           Consumer(
                             builder: (context, value, child) {
                               return Text(
                                 ' ${appState.distane} ${AppText.unitCm}',
-                                style: CustomTextStyle.bodyM,
+                                style: textTheme.bodyLarge,
                               );
                             },
                           ),
