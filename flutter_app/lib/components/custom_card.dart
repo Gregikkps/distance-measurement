@@ -1,6 +1,6 @@
 import 'package:distance_measurement_app/resources/tools/platform_mode_checker.dart';
 import 'package:flutter/material.dart';
-import 'package:distance_measurement_app/resources/app_distance/app_distance.dart';
+import 'package:distance_measurement_app/resources/app_spacing/app_spacing.dart';
 import 'package:distance_measurement_app/resources/theme/app_colors.dart';
 
 class CustomCard extends StatelessWidget {
@@ -24,7 +24,7 @@ class CustomCard extends StatelessWidget {
               : AppColors().primaryLightColor,
         ),
         child: Padding(
-          padding: AppDistance.buttonTextPadding,
+          padding: AppSpacing.buttonTextPadding,
           child: child,
         ),
       ),

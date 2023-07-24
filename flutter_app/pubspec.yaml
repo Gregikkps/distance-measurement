@@ -27,5 +27,6 @@ dev_dependencies:
 flutter:  
   uses-material-design: true  
   assets:
-    - assets/background.jpg
+    - assets/menu_background.jpg
+    - assets/distance_background.jpg
   

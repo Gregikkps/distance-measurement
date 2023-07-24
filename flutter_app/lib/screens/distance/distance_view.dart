@@ -5,7 +5,7 @@ import 'package:distance_measurement_app/resources/theme/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:distance_measurement_app/components/custom_card.dart';
 import 'package:distance_measurement_app/components/custom_appbar.dart';
-import 'package:distance_measurement_app/resources/app_distance/app_distance.dart';
+import 'package:distance_measurement_app/resources/app_spacing/app_spacing.dart';
 import 'package:distance_measurement_app/resources/text/app_text.dart';
 import 'package:distance_measurement_app/screens/distance/distance.dart';
 import 'package:provider/provider.dart';
@@ -32,14 +32,14 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
         children: [
           CustomBackground(image: AppAssets.distanceBackground),
           Padding(
-            padding: AppDistance.standardPadding,
+            padding: AppSpacing.standardPadding,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Center(
                   child: CustomCard(
                     child: Padding(
-                      padding: AppDistance.standardPadding,
+                      padding: AppSpacing.standardPadding,
                       child: Text(
                         appState.isConnected ? AppText.connected : AppText.disconnected,
                         style: textTheme.bodyLarge.copyWith(
@@ -59,7 +59,7 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
                 Center(
                   child: CustomCard(
                     child: Padding(
-                      padding: AppDistance.standardPadding,
+                      padding: AppSpacing.standardPadding,
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,

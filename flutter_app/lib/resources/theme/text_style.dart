@@ -88,7 +88,7 @@ class TextThemeExtension extends ThemeExtension<TextThemeExtension> {
       ),
       displayLarge: TextStyle(
         fontFamily: mainFontFamily,
-        fontSize: 22.0,
+        fontSize: 40.0,
       ),
       labelSmall: TextStyle(
         fontFamily: mainFontFamily,

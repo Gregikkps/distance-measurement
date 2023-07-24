@@ -1,5 +1,5 @@
 import 'package:distance_measurement_app/provider/menu_state.dart';
-import 'package:distance_measurement_app/resources/app_distance/app_distance.dart';
+import 'package:distance_measurement_app/resources/app_spacing/app_spacing.dart';
 import 'package:distance_measurement_app/resources/drawer_config.dart';
 import 'package:distance_measurement_app/resources/text/app_text.dart';
 import 'package:distance_measurement_app/resources/theme/text_style.dart';
@@ -14,19 +14,21 @@ class MenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  final textTheme = Theme.of(context).extension<TextThemeExtension>()!;
+    final textTheme = Theme.of(context).extension<TextThemeExtension>()!;
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.transparent,
       body: SafeArea(
         child: SingleChildScrollView(
           child: ListView(
-            padding: AppDistance.standardPadding,
+            padding: AppSpacing.standardPadding,
             shrinkWrap: true,
             children: <Widget>[
+              AppSpacing.smallSizedBox,
               Text(
                 AppText.drawerTittle,
-               style: textTheme.titleLarge,
+                style: textTheme.displayLarge,
               ),
+              AppSpacing.smallSizedBox,
               Selector<MenuState, int>(
                 selector: (_, provider) => provider.currentPage,
                 builder: (_, index, __) => Column(
@@ -40,7 +42,7 @@ class MenuScreen extends StatelessWidget {
                             item: item,
                             callback: callback,
                             widthBox: DrawerConfig.widthItemBox,
-                            style: Theme.of(context).textTheme.bodySmall,
+                            style: textTheme.displayMedium,
                             selected: index == item.index,
                           ),
                         )
