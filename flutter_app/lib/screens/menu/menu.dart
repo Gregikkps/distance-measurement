@@ -5,6 +5,7 @@ import 'package:distance_measurement_app/resources/text/app_text.dart';
 import 'package:distance_measurement_app/resources/theme/text_style.dart';
 import 'package:distance_measurement_app/screens/menu/menu_item.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -23,6 +24,20 @@ class MenuScreen extends StatelessWidget {
             padding: AppSpacing.standardPadding,
             shrinkWrap: true,
             children: <Widget>[
+              FutureBuilder<PackageInfo>(
+                future: PackageInfo.fromPlatform(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    final packageInfo = snapshot.data!;
+                    return Text(
+                      "${AppText.version} ${packageInfo.version}",
+                      style: textTheme.displaySmall,
+                    );
+                  } else {
+                    return const LinearProgressIndicator();
+                  }
+                },
+              ),
               AppSpacing.smallSizedBox,
               Text(
                 AppText.drawerTittle,

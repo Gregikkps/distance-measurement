@@ -8,4 +8,5 @@ class AppText {
       "Error: ClientException with SocketException: Connection timed out (OS Error: Connection timed out, errno = 110)";
 
   static const String drawerTittle = "Menu";
+  static const String version = "Version";
 }

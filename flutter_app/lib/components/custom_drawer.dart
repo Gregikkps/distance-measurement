@@ -24,10 +24,10 @@ class CustomDrawer extends StatelessWidget {
         current: 0,
       ),
       style: DrawerStyle.style2,
-      mainScreen: const DistanceScreen(), 
-      showShadow: true, 
+      mainScreen: const DistanceScreen(),
+      showShadow: true,
       angle: 0.0,
-      menuBackgroundColor: Colors.grey, 
+      menuBackgroundColor: Colors.grey,
       slideWidth: MediaQuery.of(context).size.width * 0.65,
     );
   }
