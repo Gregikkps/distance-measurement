@@ -12,10 +12,10 @@ class DistanceScreen extends StatefulWidget {
   const DistanceScreen({super.key});
 
   @override
-  State<DistanceScreen> createState() => DistanceScreenController();
+  State<DistanceScreen> createState() => DistanceScreenState();
 }
 
-class DistanceScreenController extends State<DistanceScreen> {
+class DistanceScreenState extends State<DistanceScreen> {
   void showCustomSnackbarError(String errorString) {
     CustomSnackbar.showError(context, errorString);
   }

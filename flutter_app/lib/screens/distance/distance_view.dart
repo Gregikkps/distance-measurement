@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import '../../provider/app_state.dart';
 
 class DistanceScreenView extends StatefulWidget {
-  final DistanceScreenController state;
+  final DistanceScreenState state;
   const DistanceScreenView(this.state, {super.key});
 
   @override
@@ -26,7 +26,7 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
     final textTheme = Theme.of(context).extension<TextThemeExtension>()!;
     return Scaffold(
       appBar: const CustomAppBar(
-        title: Text(AppText.title),
+        title: Text(AppText.distanceMeasurement),
       ),
       body: Stack(
         children: [
