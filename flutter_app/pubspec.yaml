@@ -18,16 +18,27 @@ dependencies:
   provider: ^6.0.5
   flutter_zoom_drawer: ^3.1.1
   package_info_plus: ^4.0.2
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
  
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon.jpg"
+  min_sdk_android: 21 #
+  adaptive_icon_background: "#808080"
+  adaptive_icon_foreground: "assets/icon.jpg" # only available for Android 8.0 devices and above
 
 flutter:  
   uses-material-design: true  
   assets:
     - assets/menu_background.jpg
     - assets/distance_background.jpg
+    - assets/icon.jpg
   
