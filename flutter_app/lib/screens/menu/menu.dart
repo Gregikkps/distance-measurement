@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:distance_measurement_app/provider/menu_state.dart';
 import 'package:distance_measurement_app/resources/app_spacing/app_spacing.dart';
 import 'package:distance_measurement_app/resources/drawer_config.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
+@RoutePage() 
 class MenuScreen extends StatelessWidget {
   final void Function(int)? callback;
   final int? current;

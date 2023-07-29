@@ -4,6 +4,7 @@ import 'package:distance_measurement_app/components/custom_drawer.dart';
 import 'package:distance_measurement_app/provider/app_state.dart';
 import 'package:distance_measurement_app/provider/menu_state.dart';
 import 'package:distance_measurement_app/resources/app_config.dart';
+import 'package:distance_measurement_app/router/app_router.dart';
 import 'package:distance_measurement_app/utils/distance_utils.dart';
 import 'package:distance_measurement_app/utils/network_utils.dart';
 import 'package:flutter/material.dart';
@@ -34,9 +35,10 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
+  final _appRouter = AppRouter();
+  Timer? timer;
   final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
       GlobalKey<ScaffoldMessengerState>();
-  Timer? timer;
 
   @override
   void initState() {
@@ -57,17 +59,21 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     final drawerController = ZoomDrawerController();
 
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: CustomThemeData.lightThemeData,
       darkTheme: CustomThemeData.darkThemeData,
       themeMode: ThemeMode.system,
-      home: ScaffoldMessenger(
-        key: scaffoldMessengerKey,
-        child: CustomDrawer(
-          drawerController: drawerController,
-        ),
-      ),
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+      builder: (context, child) {
+        return ScaffoldMessenger(
+          key: scaffoldMessengerKey,
+          child: CustomDrawer(
+            drawerController: drawerController,
+          ),
+        );
+      },
     );
   }
 }
