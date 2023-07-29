@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:distance_measurement_app/screens/distance/distance.dart';
 import 'package:distance_measurement_app/screens/help/help.dart';
-import 'package:distance_measurement_app/screens/info/info.dart';
+import 'package:distance_measurement_app/screens/wifi_info/wifi_info.dart';
 import 'package:distance_measurement_app/screens/menu/menu.dart';
 import 'package:distance_measurement_app/screens/settings/settings.dart';
 import 'package:flutter/material.dart';

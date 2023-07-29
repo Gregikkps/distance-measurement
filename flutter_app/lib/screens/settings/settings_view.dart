@@ -1,7 +1,7 @@
 import 'package:distance_measurement_app/components/custom_appbar.dart';
 import 'package:distance_measurement_app/components/custom_background.dart';
 import 'package:distance_measurement_app/resources/app_assets/app_assets.dart';
-import 'package:distance_measurement_app/resources/text/menu_text.dart';
+import 'package:distance_measurement_app/resources/text/settings_text.dart';
 import 'package:distance_measurement_app/resources/theme/app_colors.dart';
 import 'package:distance_measurement_app/screens/settings/settings.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class SettingsScreenView extends StatelessWidget {
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     return Scaffold(
       appBar: const CustomAppBar(
-        title: Text(MenuText.settings),
+        title: Text(SettingsText.title),
       ),
       body: Stack(
         children: [

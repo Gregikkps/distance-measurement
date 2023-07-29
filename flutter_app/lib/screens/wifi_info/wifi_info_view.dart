@@ -2,11 +2,11 @@ import 'package:distance_measurement_app/components/custom_appbar.dart';
 import 'package:distance_measurement_app/components/custom_background.dart';
 import 'package:distance_measurement_app/provider/settings_state.dart';
 import 'package:distance_measurement_app/resources/app_assets/app_assets.dart';
-import 'package:distance_measurement_app/resources/text/menu_text.dart';
 import 'package:distance_measurement_app/resources/text/settings_text.dart';
+import 'package:distance_measurement_app/resources/text/wifi_info_text.dart';
 import 'package:distance_measurement_app/resources/theme/app_colors.dart';
 import 'package:distance_measurement_app/resources/theme/text_style.dart';
-import 'package:distance_measurement_app/screens/info/info.dart';
+import 'package:distance_measurement_app/screens/wifi_info/wifi_info.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:settings_ui/settings_ui.dart';
@@ -22,7 +22,7 @@ class InfoScreenView extends StatelessWidget {
     final textTheme = Theme.of(context).extension<TextThemeExtension>()!;
     return Scaffold(
       appBar: const CustomAppBar(
-        title: Text(MenuText.wifiInfo),
+        title: Text(WifiInfoText.title),
       ),
       body: Stack(
         children: [

@@ -1,7 +1,7 @@
 import 'package:distance_measurement_app/components/custom_appbar.dart';
 import 'package:distance_measurement_app/components/custom_background.dart';
 import 'package:distance_measurement_app/resources/app_assets/app_assets.dart';
-import 'package:distance_measurement_app/resources/text/menu_text.dart';
+import 'package:distance_measurement_app/resources/text/help_text.dart';
 import 'package:distance_measurement_app/screens/help/help.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,7 @@ class HelpScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        title: Text(MenuText.help),
+        title: Text(HelpText.title),
       ),
       body: Stack(
         children: [

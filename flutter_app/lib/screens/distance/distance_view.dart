@@ -26,7 +26,7 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
     final textTheme = Theme.of(context).extension<TextThemeExtension>()!;
     return Scaffold(
       appBar: const CustomAppBar(
-        title: Text(DistanceText.distanceMeasurement),
+        title: Text(DistanceText.title),
       ),
       body: Stack(
         children: [
@@ -50,11 +50,6 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
                       ),
                     ),
                   ),
-                ),
-                Consumer(
-                  builder: (context, value, child) {
-                    return Text(appState.wifiGatewayIP);
-                  },
                 ),
                 Center(
                   child: CustomCard(
