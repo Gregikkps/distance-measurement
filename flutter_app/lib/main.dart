@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:distance_measurement_app/components/custom_drawer.dart';
 import 'package:distance_measurement_app/provider/app_state.dart';
 import 'package:distance_measurement_app/provider/menu_state.dart';
+import 'package:distance_measurement_app/provider/settings_state.dart';
 import 'package:distance_measurement_app/resources/app_config.dart';
 import 'package:distance_measurement_app/router/app_router.dart';
 import 'package:distance_measurement_app/utils/distance_utils.dart';
@@ -16,11 +17,13 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   final appState = AppState();
   final menuState = MenuState();
+  final settingsState = SettingsState();
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: appState),
         ChangeNotifierProvider.value(value: menuState),
+        ChangeNotifierProvider.value(value: settingsState),
       ],
       child: const MyApp(),
     ),

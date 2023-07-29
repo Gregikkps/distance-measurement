@@ -20,8 +20,8 @@ class CustomCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: PlatformModeChecker.isDarkMode()
-              ? AppColors().primaryDarkColor
-              : AppColors().primaryLightColor,
+              ? AppColors().secondaryDarkColor
+              : AppColors().secondaryLightColor,
         ),
         child: Padding(
           padding: AppSpacing.buttonTextPadding,

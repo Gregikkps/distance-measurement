@@ -19,6 +19,7 @@ dependencies:
   flutter_zoom_drawer: ^3.1.1
   package_info_plus: ^4.0.2
   auto_route: ^7.7.1
+  settings_ui: ^2.0.2
   
  
   

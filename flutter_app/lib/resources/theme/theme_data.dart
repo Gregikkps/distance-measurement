@@ -11,13 +11,14 @@ class CustomThemeData {
     final TextThemeExtension customTextTheme = TextThemeExtension();
 
     return lightThemeData.copyWith(
-      colorScheme: ColorScheme.fromSwatch(
-        primarySwatch: AppColors().primaryLightColor,
+      useMaterial3: true,
+      colorScheme: ColorScheme.light(
+        primary: AppColors().primaryLightColor,
+        secondary: AppColors().secondaryLightColor,
       ),
       appBarTheme: AppBarTheme(
         titleTextStyle: lightThemeData.textTheme.titleLarge,
       ),
-      primaryColor: AppColors().primaryLightColor,
       snackBarTheme: const SnackBarThemeData(
         contentTextStyle: TextStyle(
           color: AppColors.whiteColor,
@@ -32,13 +33,14 @@ class CustomThemeData {
     final TextThemeExtension customTextTheme = TextThemeExtension();
 
     return darkThemeData.copyWith(
-      colorScheme: ColorScheme.fromSwatch(
-        primarySwatch: AppColors().primaryDarkColor,
+      useMaterial3: true,
+      colorScheme: ColorScheme.dark(
+        primary: AppColors().primaryDarkColor,
+        secondary: AppColors().secondaryDarkColor,
       ),
       appBarTheme: AppBarTheme(
         titleTextStyle: darkThemeData.textTheme.titleLarge,
       ),
-      primaryColor: AppColors().primaryDarkColor,
       snackBarTheme: const SnackBarThemeData(
         contentTextStyle: TextStyle(
           color: AppColors.whiteColor,

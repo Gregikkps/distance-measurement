@@ -1,5 +1,6 @@
 import 'package:distance_measurement_app/provider/menu_state.dart';
 import 'package:distance_measurement_app/resources/drawer_config.dart';
+import 'package:distance_measurement_app/resources/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:provider/provider.dart';
@@ -27,8 +28,9 @@ class CustomDrawer extends StatelessWidget {
       mainScreen: DrawerConfig.buildMainScreen(context),
       showShadow: true,
       angle: 0.0,
-      menuBackgroundColor: Colors.grey,
-      slideWidth: MediaQuery.of(context).size.width * 0.65,
+      menuBackgroundColor: AppColors.greyColor,
+      slideWidth: MediaQuery.of(context).size.width * DrawerConfig.slideWidth,
+      menuScreenWidth: MediaQuery.of(context).size.width * DrawerConfig.menuScreenWidth,
     );
   }
 }

@@ -3,6 +3,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:distance_measurement_app/provider/settings_state.dart';
 import 'package:flutter/services.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -29,7 +30,7 @@ class NetworkParametersInspector {
     }
   }
 
-  Future<void> getAllNetworkInfo() async {
+  Future<void> getAllNetworkInfo(SettingsState settingsState) async {
     try {
       if (Platform.isIOS) {
         var status = await Permission.location.status;
@@ -139,6 +140,9 @@ class NetworkParametersInspector {
         'Wifi Broadcast: $wifiBroadcast\n'
         'Wifi Gateway: $wifiGatewayIP\n'
         'Wifi Submask: $wifiSubmask\n';
-    log(connectionStatus);
+
+    log(settingsState.connectionStatus);
+
+    settingsState.setConnectionStatus(connectionStatus);
   }
 }

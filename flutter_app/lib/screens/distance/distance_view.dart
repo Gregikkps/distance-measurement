@@ -1,12 +1,12 @@
 import 'package:distance_measurement_app/components/custom_background.dart';
 import 'package:distance_measurement_app/resources/app_assets/app_assets.dart';
+import 'package:distance_measurement_app/resources/text/distance_text.dart';
 import 'package:distance_measurement_app/resources/theme/app_colors.dart';
 import 'package:distance_measurement_app/resources/theme/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:distance_measurement_app/components/custom_card.dart';
 import 'package:distance_measurement_app/components/custom_appbar.dart';
 import 'package:distance_measurement_app/resources/app_spacing/app_spacing.dart';
-import 'package:distance_measurement_app/resources/text/app_text.dart';
 import 'package:distance_measurement_app/screens/distance/distance.dart';
 import 'package:provider/provider.dart';
 import '../../provider/app_state.dart';
@@ -26,7 +26,7 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
     final textTheme = Theme.of(context).extension<TextThemeExtension>()!;
     return Scaffold(
       appBar: const CustomAppBar(
-        title: Text(AppText.distanceMeasurement),
+        title: Text(DistanceText.distanceMeasurement),
       ),
       body: Stack(
         children: [
@@ -41,7 +41,7 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
                     child: Padding(
                       padding: AppSpacing.standardPadding,
                       child: Text(
-                        appState.isConnected ? AppText.connected : AppText.disconnected,
+                        appState.isConnected ? DistanceText.connected : DistanceText.disconnected,
                         style: textTheme.bodyLarge.copyWith(
                           color: appState.isConnected
                               ? AppColors.greenTextColor
@@ -64,11 +64,11 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('${AppText.distance}:', style: textTheme.bodyLarge),
+                          Text('${DistanceText.distance}:', style: textTheme.bodyLarge),
                           Consumer(
                             builder: (context, value, child) {
                               return Text(
-                                ' ${appState.distane} ${AppText.unitCm}',
+                                ' ${appState.distane} ${DistanceText.unitCm}',
                                 style: textTheme.bodyLarge,
                               );
                             },

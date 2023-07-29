@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color whiteColor = Colors.white;
   static const Color blackColor = Colors.black;
+  static const Color greyColor = Colors.grey;
   static const Color blueGreyColor = Colors.blueGrey;
   static const Color transparent = Colors.transparent;
   static const Color errorRed = Colors.red;
@@ -14,10 +15,17 @@ class AppColors {
   static const Color redTextColor = Colors.red;
 
   MaterialColor primaryLightColor = ColorChanger().createMaterialSwatch(
-    Colors.white70,
+    Colors.black87,
+  );
+
+  MaterialColor secondaryLightColor = ColorChanger().createMaterialSwatch(
+    Colors.white70
   );
 
   MaterialColor primaryDarkColor = ColorChanger().createMaterialSwatch(
+    Colors.white70,
+  );
+  MaterialColor secondaryDarkColor = ColorChanger().createMaterialSwatch(
     Colors.black87,
   );
 }
