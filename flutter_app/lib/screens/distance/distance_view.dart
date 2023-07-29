@@ -1,5 +1,6 @@
 import 'package:distance_measurement_app/components/custom_background.dart';
 import 'package:distance_measurement_app/resources/app_assets/app_assets.dart';
+import 'package:distance_measurement_app/resources/text/app_text.dart';
 import 'package:distance_measurement_app/resources/text/distance_text.dart';
 import 'package:distance_measurement_app/resources/theme/app_colors.dart';
 import 'package:distance_measurement_app/resources/theme/text_style.dart';
@@ -41,7 +42,7 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
                     child: Padding(
                       padding: AppSpacing.standardPadding,
                       child: Text(
-                        appState.isConnected ? DistanceText.connected : DistanceText.disconnected,
+                        appState.isConnected ? AppText.connected : AppText.disconnected,
                         style: textTheme.bodyLarge.copyWith(
                           color: appState.isConnected
                               ? AppColors.greenTextColor

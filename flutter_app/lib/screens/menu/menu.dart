@@ -41,7 +41,6 @@ class MenuScreen extends StatelessWidget {
                   }
                 },
               ),
-              AppSpacing.smallSizedBox,
               Text(
                 MenuText.drawerTittle,
                 style: textTheme.displayLarge,
