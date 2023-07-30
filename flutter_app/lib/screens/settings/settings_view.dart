@@ -15,6 +15,7 @@ class SettingsScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     Color primaryColor = Theme.of(context).colorScheme.primary;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
+    
     return Scaffold(
       appBar: const CustomAppBar(
         title: Text(SettingsText.title),
@@ -36,13 +37,48 @@ class SettingsScreenView extends StatelessWidget {
               SettingsSection(
                 title: const SizedBox(),
                 tiles: <SettingsTile>[
-                  SettingsTile.navigation(title: const Text('Appearance')),
+                  SettingsTile.navigation(title: const Text(SettingsText.appearance)),
+                  SettingsTile.switchTile(
+                    activeSwitchColor: primaryColor,
+                    onToggle: (value) {
+                      state.customThemeSwitchValue = value;
+                    },
+                    initialValue: state.customThemeSwitchValue ,
+                    leading: const Icon(Icons.format_paint),
+                    title: const Text(SettingsText.enableCustomTheme),
+                  ),
+                  SettingsTile.navigation(
+                    onPressed: (context) {},
+                    leading: const Icon(Icons.system_update),
+                    title: const Text("System mode"),
+                    value: const Text('on'),
+                  ),
+                  SettingsTile.navigation(
+                    onPressed: (context) {},
+                    leading: const Icon(Icons.dark_mode),
+                    title: const Text("Dark mode"),
+                    value: const Text('off'),
+                  ),
+                  SettingsTile.navigation(
+                    onPressed: (context) {},
+                    leading: const Icon(Icons.light_mode),
+                    title: const Text("Light mode"),
+                    value: const Text('off'),
+                  ),
+                ],
+              ),
+              SettingsSection(
+                title: const SizedBox(),
+                tiles: <SettingsTile>[
+                  SettingsTile.navigation(
+                    title: const Text(SettingsText.advancedSettings),
+                  ),
                   SettingsTile.switchTile(
                     activeSwitchColor: primaryColor,
                     onToggle: (value) {},
                     initialValue: false,
                     leading: const Icon(Icons.format_paint),
-                    title: const Text('Enable custom theme'),
+                    title: const Text(SettingsText.enableCustomTheme),
                   ),
                 ],
               ),

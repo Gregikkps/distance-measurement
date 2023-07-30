@@ -11,6 +11,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class SettingsScreenState extends State<SettingsScreen> {
+  bool? customThemeSwitchValue = true;
   @override
   Widget build(BuildContext context) => SettingsScreenView(this);
 }
