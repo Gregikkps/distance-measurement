@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: const SizedBox(),
       titleTextStyle: textTheme.displayMedium.copyWith(
         color:
-            PlatformModeChecker.isDarkMode() ? AppColors.whiteTextColor : AppColors.blackTextColor,
+            PlatformModeChecker.isDarkMode(context) ? AppColors.whiteTextColor : AppColors.blackTextColor,
       ),
     );
   }

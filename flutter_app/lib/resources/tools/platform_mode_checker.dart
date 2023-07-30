@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class PlatformModeChecker {
   static bool? _isDarkMode;
 
-  static bool isDarkMode() {
-    _isDarkMode = WidgetsBinding.instance.platformDispatcher.platformBrightness == Brightness.dark;
+  static bool isDarkMode(BuildContext context) {
+    _isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return _isDarkMode!;
   }
 }

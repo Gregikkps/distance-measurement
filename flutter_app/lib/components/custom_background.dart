@@ -14,7 +14,7 @@ class CustomBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return ColorFiltered(
       colorFilter: ColorFilter.mode(
-        PlatformModeChecker.isDarkMode()
+        PlatformModeChecker.isDarkMode(context)
             ? AppColors.blackColor.withOpacity(0.5)
             : AppColors.transparent,
         BlendMode.srcOver,

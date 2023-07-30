@@ -66,7 +66,7 @@ class MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       theme: CustomThemeData.lightThemeData,
       darkTheme: CustomThemeData.darkThemeData,
-      themeMode: ThemeMode.system,
+      themeMode:  ThemeMode.system,
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
       builder: (context, child) {

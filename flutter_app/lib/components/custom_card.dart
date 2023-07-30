@@ -19,7 +19,7 @@ class CustomCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: PlatformModeChecker.isDarkMode()
+          color: PlatformModeChecker.isDarkMode(context)
               ? AppColors().secondaryDarkColor
               : AppColors().secondaryLightColor,
         ),
