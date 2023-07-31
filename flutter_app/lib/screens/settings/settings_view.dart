@@ -15,7 +15,6 @@ class SettingsScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).colorScheme.primary;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     SettingsState settingsState = Provider.of<SettingsState>(context);
 
@@ -42,7 +41,6 @@ class SettingsScreenView extends StatelessWidget {
                     title: const SizedBox(),
                     tiles: <SettingsTile>[
                       SettingsTile.switchTile(
-                        activeSwitchColor: primaryColor,
                         onToggle: (value) {
                           settingsState.setCustomThemeSwitchValue(value);
                         },
