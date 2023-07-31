@@ -1,4 +1,4 @@
-import 'package:distance_measurement_app/provider/app_state.dart';
+import 'package:distance_measurement_app/provider/app/app_state.dart';
 import 'package:distance_measurement_app/resources/app_config.dart';
 import 'package:distance_measurement_app/resources/text/app_text.dart';
 import 'package:flutter/material.dart';

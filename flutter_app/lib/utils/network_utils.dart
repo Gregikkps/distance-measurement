@@ -1,5 +1,5 @@
-import 'package:distance_measurement_app/provider/app_state.dart';
-import 'package:distance_measurement_app/provider/settings_state.dart';
+import 'package:distance_measurement_app/provider/app/app_state.dart';
+import 'package:distance_measurement_app/provider/settings/settings_state.dart';
 import 'package:distance_measurement_app/resources/tools/network_parametrs_inspector.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

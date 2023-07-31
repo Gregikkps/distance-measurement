@@ -3,12 +3,12 @@
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:distance_measurement_app/provider/settings_state.dart';
+import 'package:distance_measurement_app/provider/settings/settings_state.dart';
 import 'package:flutter/services.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../../provider/app_state.dart';
+import '../../provider/app/app_state.dart';
 
 class NetworkParametersInspector {
   String connectionStatus = 'Unknown';

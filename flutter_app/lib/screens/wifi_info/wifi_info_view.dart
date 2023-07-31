@@ -1,7 +1,7 @@
 import 'package:distance_measurement_app/components/custom_appbar.dart';
 import 'package:distance_measurement_app/components/custom_background.dart';
-import 'package:distance_measurement_app/provider/app_state.dart';
-import 'package:distance_measurement_app/provider/settings_state.dart';
+import 'package:distance_measurement_app/provider/app/app_state.dart';
+import 'package:distance_measurement_app/provider/settings/settings_state.dart';
 import 'package:distance_measurement_app/resources/app_assets/app_assets.dart';
 import 'package:distance_measurement_app/resources/text/app_text.dart';
 import 'package:distance_measurement_app/resources/text/wifi_info_text.dart';

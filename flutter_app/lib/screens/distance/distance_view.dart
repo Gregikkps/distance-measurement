@@ -10,7 +10,7 @@ import 'package:distance_measurement_app/components/custom_appbar.dart';
 import 'package:distance_measurement_app/resources/app_spacing/app_spacing.dart';
 import 'package:distance_measurement_app/screens/distance/distance.dart';
 import 'package:provider/provider.dart';
-import '../../provider/app_state.dart';
+import '../../provider/app/app_state.dart';
 
 class DistanceScreenView extends StatefulWidget {
   final DistanceScreenState state;

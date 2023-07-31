@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:distance_measurement_app/provider/menu_state.dart';
+import 'package:distance_measurement_app/provider/menu/menu_state.dart';
 import 'package:distance_measurement_app/resources/app_spacing/app_spacing.dart';
 import 'package:distance_measurement_app/resources/drawer_config.dart';
 import 'package:distance_measurement_app/resources/text/menu_text.dart';

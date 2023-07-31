@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:distance_measurement_app/provider/menu_state.dart';
+import 'package:distance_measurement_app/provider/menu/menu_state.dart';
 import 'package:distance_measurement_app/resources/text/menu_text.dart';
 import 'package:distance_measurement_app/screens/distance/distance.dart';
 import 'package:distance_measurement_app/screens/help/help.dart';
