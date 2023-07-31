@@ -13,7 +13,6 @@ class SettingsScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).colorScheme.primary;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
     return Scaffold(
@@ -37,116 +36,136 @@ class SettingsScreenView extends StatelessWidget {
               SettingsSection(
                 title: const SizedBox(),
                 tiles: <SettingsTile>[
-                  SettingsTile.navigation(title: const Text(SettingsText.appearance)),
-                  SettingsTile.switchTile(
-                    activeSwitchColor: primaryColor,
-                    onToggle: (value) {
-                      state.customThemeSwitchValue = value;
-                    },
-                    initialValue: state.customThemeSwitchValue,
-                    leading: const Icon(Icons.format_paint),
-                    title: const Text(SettingsText.enableCustomTheme),
-                  ),
+                  // SettingsTile.navigation(title: const Text(SettingsText.appearance)),
+                  // SettingsTile.switchTile(
+                  //   activeSwitchColor: primaryColor,
+                  //   onToggle: (value) {
+                  //     state.customThemeSwitchValue = value;
+                  //   },
+                  //   initialValue: state.customThemeSwitchValue,
+                  //   leading: const Icon(Icons.format_paint),
+                  //   title: const Text(SettingsText.enableCustomTheme),
+                  // ),
                   SettingsTile.navigation(
                     onPressed: (context) {},
                     leading: const Icon(Icons.system_update),
                     title: const Text("System mode"),
-                    value: const Text('on'),
+                    value: Text(state.deviceTheme.toString()),
+                    trailing: Radio<bool>(
+                      key: key,
+                      value: true,
+                      groupValue: state.deviceTheme == ThemeMode.system,
+                      // groupValue: state.deviceTheme?.system ?? false,
+                      onChanged: (value) {
+                        state.setSystemTheme(value);
+                      },
+                    ),
                   ),
                   SettingsTile.navigation(
                     onPressed: (context) {},
                     leading: const Icon(Icons.dark_mode),
                     title: const Text("Dark mode"),
-                    value: const Text('off'),
+                    value: Text(state.deviceTheme.toString()),
+                    trailing: Radio<bool>(
+                      key: key,
+                      value: true,
+                      groupValue: state.deviceTheme == ThemeMode.dark,
+                      onChanged: (value) {
+                        state.setDarkTheme(value);
+                      },
+                    ),
                   ),
                   SettingsTile.navigation(
                     onPressed: (context) {},
                     leading: const Icon(Icons.light_mode),
+                    title: const Text("Light mode"),
+                    value: Text(state.deviceTheme.toString()),
                     trailing: Radio<bool>(
                       key: key,
-                      value: false,
-                      groupValue: false,
-                      onChanged: (value) {},
+                      value: true,
+                      groupValue: state.deviceTheme == ThemeMode.light,
+                      onChanged: (value) {
+                        state.setLightTheme(value);
+                      },
                     ),
-                    title: const Text("Light mode"),
-                    value: const Text('off'),
                   ),
                 ],
               ),
-              SettingsSection(
-                title: const SizedBox(),
-                tiles: <SettingsTile>[
-                  SettingsTile.navigation(
-                    title: const Text(SettingsText.advancedSettings),
-                  ),
-                  SettingsTile.switchTile(
-                    activeSwitchColor: primaryColor,
-                    onToggle: (value) {},
-                    initialValue: false,
-                    leading: const Icon(Icons.format_paint),
-                    title: const Text(SettingsText.enableCustomTheme),
-                  ),
-                ],
-              ),
-              SettingsSection(
-                title: const SizedBox(),
-                tiles: <SettingsTile>[
-                  SettingsTile.switchTile(
-                    activeSwitchColor: primaryColor,
-                    onToggle: (value) {
-                      state.customThemeSwitchValue = value;
-                      // state.selectedThemeMode = value ? ThemeMode.dark : ThemeMode.light;
-                      // state._saveThemeMode(state.selectedThemeMode);
-                      // state.setState(() {});
-                    },
-                    initialValue: state.customThemeSwitchValue,
-                    leading: const Icon(Icons.format_paint),
-                    title: const Text(SettingsText.enableCustomTheme),
-                  ),
-                  // SettingsTile.switchTile(
-                  //   title: const Text('System theme'),
-                  //   leading: Radio<ThemeMode>(
-                  //     value: ThemeMode.system,
-                  //     groupValue: state.selectedThemeMode,
-                  //     onChanged: (value) {
-                  //       state.selectedThemeMode = value!;
-                  //       state._saveThemeMode(state.selectedThemeMode);
-                  //       state.setState(() {});
-                  //     },
-                  //   ),
-                  //   initialValue: null,
-                  //   onToggle: (bool value) {},
-                  // ),
-                  // SettingsTile.switchTile(
-                  //   title: const Text('Light theme'),
-                  //   leading: Radio<ThemeMode>(
-                  //     value: ThemeMode.light,
-                  //     groupValue: state.selectedThemeMode,
-                  //     onChanged: (value) {
-                  //       state.selectedThemeMode = value!;
-                  //       state._saveThemeMode(state.selectedThemeMode);
-                  //       state.setState(() {});
-                  //     },
-                  //   ),
-                  //   initialValue: null,
-                  //   onToggle: (bool value) {},
-                  // ),
-                  // SettingsTile.switchTile(
-                  //   title: const Text('Dark theme'),
-                  //   leading: Radio<ThemeMode>(
-                  //     value: ThemeMode.dark,
-                  //     groupValue: state.selectedThemeMode,
-                  //     onChanged: (value) {
-                  //       state.selectedThemeMode = value!;
-                  //       state._saveThemeMode(state.selectedThemeMode);
-                  //       state.setState(() {});
-                  //     },
-                  //   ),
-                  //   initialValue: null,
-                  //   onToggle: (bool value) {},
-                  // ),
-                ],
-              ),
+              // SettingsSection(
+              //   title: const SizedBox(),
+              //   tiles: <SettingsTile>[
+              //     SettingsTile.navigation(
+              //       title: const Text(SettingsText.advancedSettings),
+              //     ),
+              //     SettingsTile.switchTile(
+              //       activeSwitchColor: primaryColor,
+              //       onToggle: (value) {},
+              //       initialValue: false,
+              //       leading: const Icon(Icons.format_paint),
+              //       title: const Text(SettingsText.enableCustomTheme),
+              //     ),
+              //   ],
+              // ),
+
+              // SettingsSection(
+              //   title: const SizedBox(),
+              //   tiles: <SettingsTile>[
+              //     SettingsTile.switchTile(
+              //       activeSwitchColor: primaryColor,
+              //       onToggle: (value) {
+              //         state.customThemeSwitchValue = value;
+              //         // state.selectedThemeMode = value ? ThemeMode.dark : ThemeMode.light;
+              //         // state._saveThemeMode(state.selectedThemeMode);
+              //         // state.setState(() {});
+              //       },
+              //       initialValue: state.customThemeSwitchValue,
+              //       leading: const Icon(Icons.format_paint),
+              //       title: const Text(SettingsText.enableCustomTheme),
+              //     ),
+              //     SettingsTile.switchTile(
+              //       title: const Text('System theme'),
+              //       leading: Radio<ThemeMode>(
+              //         value: ThemeMode.light,
+              //         groupValue: ThemeMode.light,
+              //         onChanged: (value) {
+              //           // state.selectedThemeMode = value!;
+              //           // state._saveThemeMode(state.selectedThemeMode);
+              //           // state.setState(() {});
+              //         },
+              //       ),
+              //       initialValue: null,
+              //       onToggle: (bool value) {},
+              //     ),
+              //     // SettingsTile.switchTile(
+              //     //   title: const Text('Light theme'),
+              //     //   leading: Radio<ThemeMode>(
+              //     //     value: ThemeMode.light,
+              //     //     groupValue: state.selectedThemeMode,
+              //     //     onChanged: (value) {
+              //     //       state.selectedThemeMode = value!;
+              //     //       state._saveThemeMode(state.selectedThemeMode);
+              //     //       state.setState(() {});
+              //     //     },
+              //     //   ),
+              //     //   initialValue: null,
+              //     //   onToggle: (bool value) {},
+              //     // ),
+              //     // SettingsTile.switchTile(
+              //     //   title: const Text('Dark theme'),
+              //     //   leading: Radio<ThemeMode>(
+              //     //     value: ThemeMode.dark,
+              //     //     groupValue: state.selectedThemeMode,
+              //     //     onChanged: (value) {
+              //     //       state.selectedThemeMode = value!;
+              //     //       state._saveThemeMode(state.selectedThemeMode);
+              //     //       state.setState(() {});
+              //     //     },
+              //     //   ),
+              //     //   initialValue: null,
+              //     //   onToggle: (bool value) {},
+              //     // ),
+              //   ],
+              // ),
             ],
           ),
         ],

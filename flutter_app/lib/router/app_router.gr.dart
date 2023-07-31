@@ -27,12 +27,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HelpScreen(),
       );
     },
-    InfoRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const InfoScreen(),
-      );
-    },
     MenuRoute.name: (routeData) {
       final args =
           routeData.argsAs<MenuRouteArgs>(orElse: () => const MenuRouteArgs());
@@ -49,6 +43,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SettingsScreen(),
+      );
+    },
+    InfoRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const InfoScreen(),
       );
     },
   };
@@ -78,20 +78,6 @@ class HelpRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HelpRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [InfoScreen]
-class InfoRoute extends PageRouteInfo<void> {
-  const InfoRoute({List<PageRouteInfo>? children})
-      : super(
-          InfoRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'InfoRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -148,6 +134,20 @@ class SettingsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SettingsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [InfoScreen]
+class InfoRoute extends PageRouteInfo<void> {
+  const InfoRoute({List<PageRouteInfo>? children})
+      : super(
+          InfoRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'InfoRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
