@@ -50,7 +50,7 @@ class SettingsScreenView extends StatelessWidget {
                           value: true,
                           groupValue: settingsState.themeMode == ThemeMode.system,
                           onChanged: (value) {
-                            settingsState.setThemeMode(ThemeMode.system);
+                            settingsState.savePrefsThemeMode(ThemeMode.system);
                           },
                         ),
                       ),
@@ -63,7 +63,7 @@ class SettingsScreenView extends StatelessWidget {
                           value: true,
                           groupValue: settingsState.themeMode == ThemeMode.dark,
                           onChanged: (value) {
-                            settingsState.setThemeMode(ThemeMode.dark);
+                            settingsState.savePrefsThemeMode(ThemeMode.dark);
                           },
                         ),
                       ),
@@ -76,7 +76,7 @@ class SettingsScreenView extends StatelessWidget {
                           value: true,
                           groupValue: settingsState.themeMode == ThemeMode.light,
                           onChanged: (value) {
-                            settingsState.setThemeMode(ThemeMode.light);
+                            settingsState.savePrefsThemeMode(ThemeMode.light);
                           },
                         ),
                       ),

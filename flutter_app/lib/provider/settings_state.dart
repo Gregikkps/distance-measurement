@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsState with ChangeNotifier {
   String _connectionStatus = '';
@@ -17,8 +18,20 @@ class SettingsState with ChangeNotifier {
     notifyListeners();
   }
 
-  void setThemeMode(ThemeMode newThemeMode) {
+  Future<void> savePrefsThemeMode(ThemeMode newThemeMode) async {
     _themeMode = newThemeMode;
     notifyListeners();
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('theme_mode', _themeMode.index);
+  }
+
+  Future<void> loadPrefsThemeMode() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? themeModeIndex = prefs.getInt('theme_mode');
+    if (themeModeIndex != null) {
+      _themeMode = ThemeMode.values[themeModeIndex];
+      notifyListeners();
+    }
   }
 }

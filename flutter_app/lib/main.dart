@@ -46,6 +46,7 @@ class MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    context.read<SettingsState>().loadPrefsThemeMode();
     timer = Timer.periodic(AppConfig.frequency, (Timer timer) {
       NetworkUtils().getGatewayIP(context);
       DistanceUtils(scaffoldMessengerKey).fetchDistanceDataAndHandleState(context);
