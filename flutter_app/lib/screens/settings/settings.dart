@@ -11,24 +11,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class SettingsScreenState extends State<SettingsScreen> {
-  bool? customThemeSwitchValue = true;
-  ThemeMode? deviceTheme;
-
-  void setSystemTheme(value) async {
-    deviceTheme = ThemeMode.system;
-    setState(() {});
-  }
-
-  void setLightTheme(value) async {
-    deviceTheme = ThemeMode.light;
-    setState(() {});
-  }
-
-  void setDarkTheme(value) async {
-    deviceTheme = ThemeMode.dark;
-    setState(() {});
-  }
-
   @override
   void initState() {
     super.initState();
