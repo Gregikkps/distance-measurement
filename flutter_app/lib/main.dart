@@ -62,25 +62,20 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final drawerController = ZoomDrawerController();
-    return Builder(
-      builder: (context) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: CustomThemeData.lightThemeData,
-          darkTheme: CustomThemeData.darkThemeData,
-          themeMode: context.watch<SettingsState>().themeMode,
-          home: MaterialApp.router(
-            routerDelegate: _appRouter.delegate(),
-            routeInformationParser: _appRouter.defaultRouteParser(),
+
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      theme: CustomThemeData.lightThemeData,
+      darkTheme: CustomThemeData.darkThemeData,
+      themeMode: context.watch<SettingsState>().themeMode,
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+      builder: (context, child) {
+        return ScaffoldMessenger(
+          key: scaffoldMessengerKey,
+          child: CustomDrawer(
+            drawerController: drawerController,
           ),
-          builder: (context, child) {
-            return ScaffoldMessenger(
-              key: scaffoldMessengerKey,
-              child: CustomDrawer(
-                drawerController: drawerController,
-              ),
-            );
-          },
         );
       },
     );
