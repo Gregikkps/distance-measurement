@@ -36,6 +36,7 @@ class NetworkParametersInspector {
         var status = await Permission.location.status;
         if (status.isDenied || status.isRestricted) {
           if (await Permission.location.request().isGranted) {
+            wifiName = await _networkInfo.getWifiName();
             log('Location permission granted');
           } else {
             log('Location permission not granted');
@@ -53,6 +54,7 @@ class NetworkParametersInspector {
         var status = await Permission.location.status;
         if (status.isDenied || status.isRestricted) {
           if (await Permission.location.request().isGranted) {
+            wifiName = await _networkInfo.getWifiName();
             log('Location permission granted');
           } else {
             log('Location permission not granted');
