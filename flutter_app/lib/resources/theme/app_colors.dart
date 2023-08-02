@@ -15,17 +15,17 @@ class AppColors {
   static const Color redTextColor = Colors.red;
 
   MaterialColor primaryLightColor = ColorChanger().createMaterialSwatch(
-    Colors.black87,
+    Colors.black.withOpacity(0.8),
   );
 
   MaterialColor secondaryLightColor = ColorChanger().createMaterialSwatch(
-    Colors.white70
+    Colors.white.withOpacity(0.9),
   );
 
   MaterialColor primaryDarkColor = ColorChanger().createMaterialSwatch(
-    Colors.white70,
+    Colors.white.withOpacity(0.9),
   );
   MaterialColor secondaryDarkColor = ColorChanger().createMaterialSwatch(
-    Colors.black87,
+    Colors.black.withOpacity(0.8),
   );
 }
