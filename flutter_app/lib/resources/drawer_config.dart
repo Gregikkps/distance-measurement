@@ -27,17 +27,33 @@ class DrawerConfig {
 
     switch (currentPage) {
       case 0:
-        return const DistanceScreen();
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: const DistanceScreen(),
+        );
       case 1:
-        return const HelpScreen();
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: const HelpScreen(),
+        );
+
       case 2:
-        return const SettingsScreen();
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: const SettingsScreen(),
+        );
       case 3:
-        return const InfoScreen();
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: const InfoScreen(),
+        );
       case 4:
         return exit(0);
       default:
-        return const DistanceScreen();
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: const DistanceScreen(),
+        );
     }
   }
 }
