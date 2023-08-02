@@ -44,7 +44,7 @@ class InfoScreenView extends StatelessWidget {
                 title: const SizedBox(),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
-                    title: const Text(WifiInfoText.connectedToDevice),
+                    title: const Text(WifiInfoText.connectedToDistanceDevice),
                   ),
                   SettingsTile.navigation(
                     leading: const Icon(Icons.leak_add),

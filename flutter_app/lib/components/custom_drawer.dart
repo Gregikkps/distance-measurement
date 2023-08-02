@@ -22,7 +22,7 @@ class CustomDrawer extends StatelessWidget {
       controller: drawerController,
       menuScreen: MenuScreen(
         callback: updatePage,
-        current: 0,
+        current: context.watch<MenuState>().currentPage,
       ),
       style: DrawerStyle.style2,
       mainScreen: DrawerConfig.buildMainScreen(context),

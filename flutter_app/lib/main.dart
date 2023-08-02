@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:distance_measurement_app/components/custom_drawer.dart';
 import 'package:distance_measurement_app/provider/app/app_state.dart';
 import 'package:distance_measurement_app/provider/menu/menu_state.dart';
 import 'package:distance_measurement_app/provider/settings/settings_state.dart';
@@ -10,7 +9,6 @@ import 'package:distance_measurement_app/utils/distance_utils.dart';
 import 'package:distance_measurement_app/utils/network_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:distance_measurement_app/resources/theme/theme_data.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -61,23 +59,13 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final drawerController = ZoomDrawerController();
-
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: CustomThemeData.lightThemeData,
       darkTheme: CustomThemeData.darkThemeData,
       themeMode: context.watch<SettingsState>().themeMode,
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      builder: (context, child) {
-        return ScaffoldMessenger(
-          key: scaffoldMessengerKey,
-          child: CustomDrawer(
-            drawerController: drawerController,
-          ),
-        );
-      },
+      routerConfig: _appRouter.config(),
+      scaffoldMessengerKey: scaffoldMessengerKey,
     );
   }
 }
