@@ -36,7 +36,6 @@ class DrawerConfig {
           onWillPop: () async => false,
           child: const HelpScreen(),
         );
-
       case 2:
         return WillPopScope(
           onWillPop: () async => false,

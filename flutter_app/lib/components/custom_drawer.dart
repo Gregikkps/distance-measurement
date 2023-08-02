@@ -31,6 +31,7 @@ class CustomDrawer extends StatelessWidget {
       menuBackgroundColor: AppColors.greyColor,
       slideWidth: MediaQuery.of(context).size.width * DrawerConfig.slideWidth,
       menuScreenWidth: MediaQuery.of(context).size.width * DrawerConfig.menuScreenWidth,
+      mainScreenTapClose: true,
     );
   }
 }
