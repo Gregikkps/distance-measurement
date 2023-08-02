@@ -45,10 +45,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SettingsScreen(),
       );
     },
-    InfoRoute.name: (routeData) {
+    WifiInfoRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const InfoScreen(),
+        child: const WifiInfoScreen(),
       );
     },
     HomeRoute.name: (routeData) {
@@ -145,15 +145,15 @@ class SettingsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [InfoScreen]
-class InfoRoute extends PageRouteInfo<void> {
-  const InfoRoute({List<PageRouteInfo>? children})
+/// [WifiInfoScreen]
+class WifiInfoRoute extends PageRouteInfo<void> {
+  const WifiInfoRoute({List<PageRouteInfo>? children})
       : super(
-          InfoRoute.name,
+          WifiInfoRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'InfoRoute';
+  static const String name = 'WifiInfoRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

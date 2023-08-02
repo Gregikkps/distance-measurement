@@ -5,14 +5,14 @@ import 'package:distance_measurement_app/utils/network_utils.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class InfoScreen extends StatefulWidget {
-  const InfoScreen({super.key});
+class WifiInfoScreen extends StatefulWidget {
+  const WifiInfoScreen({super.key});
 
   @override
-  State<InfoScreen> createState() => InfoScreenState();
+  State<WifiInfoScreen> createState() => WifiInfoScreenState();
 }
 
-class InfoScreenState extends State<InfoScreen> {
+class WifiInfoScreenState extends State<WifiInfoScreen> {
   @override
   void initState() {
     NetworkUtils().getAllNetworkInfo(context);
@@ -26,5 +26,5 @@ class InfoScreenState extends State<InfoScreen> {
   }
 
   @override
-  Widget build(BuildContext context) => InfoScreenView(this);
+  Widget build(BuildContext context) => WifiInfoScreenView(this);
 }

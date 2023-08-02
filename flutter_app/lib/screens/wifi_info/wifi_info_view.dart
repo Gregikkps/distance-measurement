@@ -12,9 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-class InfoScreenView extends StatelessWidget {
-  final InfoScreenState state;
-  const InfoScreenView(this.state, {super.key});
+class WifiInfoScreenView extends StatelessWidget {
+  final WifiInfoScreenState state;
+  const WifiInfoScreenView(this.state, {super.key});
 
   @override
   Widget build(BuildContext context) {

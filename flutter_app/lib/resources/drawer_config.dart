@@ -44,7 +44,7 @@ class DrawerConfig {
       case 3:
         return WillPopScope(
           onWillPop: () async => false,
-          child: const InfoScreen(),
+          child: const WifiInfoScreen(),
         );
       case 4:
         return exit(0);
