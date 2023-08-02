@@ -19,11 +19,6 @@ class CustomThemeData {
       appBarTheme: AppBarTheme(
         titleTextStyle: lightThemeData.textTheme.titleLarge,
       ),
-      snackBarTheme: const SnackBarThemeData(
-        contentTextStyle: TextStyle(
-          color: AppColors.whiteColor,
-        ),
-      ),
       extensions: <ThemeExtension<dynamic>>[customTextTheme],
     );
   }
@@ -40,11 +35,6 @@ class CustomThemeData {
       ),
       appBarTheme: AppBarTheme(
         titleTextStyle: darkThemeData.textTheme.titleLarge,
-      ),
-      snackBarTheme: const SnackBarThemeData(
-        contentTextStyle: TextStyle(
-          color: AppColors.whiteColor,
-        ),
       ),
       extensions: <ThemeExtension<dynamic>>[customTextTheme],
     );
