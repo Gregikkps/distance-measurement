@@ -21,6 +21,9 @@ dependencies:
   auto_route: ^7.7.1
   settings_ui: ^2.0.2
   shared_preferences: ^2.2.0
+  intl: ^0.18.0  
+  flutter_localizations:
+    sdk: flutter
   
  
   
@@ -46,7 +49,8 @@ flutter_launcher_icons:
   adaptive_icon_foreground: "assets/icon.jpg" # only available for Android 8.0 devices and above
 
 flutter:  
-  uses-material-design: true  
+  uses-material-design: true
+  generate: true
   assets:
     - assets/menu_background.jpg
     - assets/distance_background.jpg

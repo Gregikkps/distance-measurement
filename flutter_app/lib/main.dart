@@ -9,7 +9,9 @@ import 'package:distance_measurement_app/utils/distance_utils.dart';
 import 'package:distance_measurement_app/utils/network_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:distance_measurement_app/resources/theme/theme_data.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,6 +47,7 @@ class MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     context.read<SettingsState>().loadPrefsThemeMode();
+    context.read<SettingsState>().loadPrefsLanguageMode();
     timer = Timer.periodic(AppConfig.frequency, (Timer timer) {
       NetworkUtils().getGatewayIP(context);
       DistanceUtils(scaffoldMessengerKey).fetchDistanceDataAndHandleState(context);
@@ -59,13 +62,28 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: CustomThemeData.lightThemeData,
-      darkTheme: CustomThemeData.darkThemeData,
-      themeMode: context.watch<SettingsState>().themeMode,
-      routerConfig: _appRouter.config(),
-      scaffoldMessengerKey: scaffoldMessengerKey,
+    return Consumer<SettingsState>(
+      builder: (context, provider, child) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          theme: CustomThemeData.lightThemeData,
+          darkTheme: CustomThemeData.darkThemeData,
+          themeMode: context.watch<SettingsState>().themeMode,
+          routerConfig: _appRouter.config(),
+          scaffoldMessengerKey: scaffoldMessengerKey,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('en'),
+            Locale('pl'),
+          ],
+          locale: context.watch<SettingsState>().appLocale,
+        );
+      }
     );
   }
 }

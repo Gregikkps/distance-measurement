@@ -1,4 +1,5 @@
 import 'package:distance_measurement_app/components/custom_background.dart';
+import 'package:distance_measurement_app/provider/app/app_state.dart';
 import 'package:distance_measurement_app/resources/app_assets/app_assets.dart';
 import 'package:distance_measurement_app/resources/text/app_text.dart';
 import 'package:distance_measurement_app/resources/text/distance_text.dart';
@@ -10,7 +11,7 @@ import 'package:distance_measurement_app/components/custom_appbar.dart';
 import 'package:distance_measurement_app/resources/app_spacing/app_spacing.dart';
 import 'package:distance_measurement_app/screens/distance/distance.dart';
 import 'package:provider/provider.dart';
-import '../../provider/app/app_state.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DistanceScreenView extends StatefulWidget {
   final DistanceScreenState state;
@@ -26,8 +27,9 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
     AppState appState = Provider.of<AppState>(context);
     final textTheme = Theme.of(context).extension<TextThemeExtension>()!;
     return Scaffold(
-      appBar: const CustomAppBar(
-        title: Text(DistanceText.title),
+      appBar: CustomAppBar(
+        title: Text(AppLocalizations.of(context).helloWorld),
+        // title: Text(DistanceText.title),
       ),
       body: Stack(
         children: [
