@@ -21,7 +21,7 @@ class WifiInfoScreenView extends StatelessWidget {
     final Color secondaryColor = Theme.of(context).colorScheme.secondary;
     final TextThemeExtension textTheme = Theme.of(context).extension<TextThemeExtension>()!;
     final AppState appState = Provider.of<AppState>(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: CustomAppBar(
@@ -53,8 +53,8 @@ class WifiInfoScreenView extends StatelessWidget {
                       builder: (context, value, child) {
                         return Text(
                           appState.isConnected
-                              ? AppLocalizations.of(context).global_connected
-                              : AppLocalizations.of(context).global_disconnected,
+                              ? appLocalizations.global_connected
+                              : appLocalizations.global_disconnected,
                           style: textTheme.bodyLarge.copyWith(
                             color: appState.isConnected
                                 ? AppColors.greenTextColor

@@ -24,9 +24,10 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
   Widget build(BuildContext context) {
     final AppState appState = Provider.of<AppState>(context);
     final textTheme = Theme.of(context).extension<TextThemeExtension>()!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: CustomAppBar(
-        title: Text(AppLocalizations.of(context).distanceView_title),
+        title: Text(AppLocalizations.of(context)!.distanceView_title),
       ),
       body: Stack(
         children: [
@@ -42,8 +43,8 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
                       padding: AppSpacing.standardPadding,
                       child: Text(
                         appState.isConnected
-                            ? AppLocalizations.of(context).global_connected
-                            : AppLocalizations.of(context).global_disconnected,
+                            ? appLocalizations.global_connected
+                            : appLocalizations.global_disconnected,
                         style: textTheme.bodyLarge.copyWith(
                           color: appState.isConnected
                               ? AppColors.greenTextColor
@@ -61,12 +62,12 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('${AppLocalizations.of(context).global_distance}:',
+                          Text('${appLocalizations.global_distance}:',
                               style: textTheme.bodyLarge),
                           Consumer(
                             builder: (context, value, child) {
                               return Text(
-                                ' ${appState.distane} ${AppLocalizations.of(context).distanceView_cm}',
+                                ' ${appState.distane} ${appLocalizations.distanceView_cm}',
                                 style: textTheme.bodyLarge,
                               );
                             },

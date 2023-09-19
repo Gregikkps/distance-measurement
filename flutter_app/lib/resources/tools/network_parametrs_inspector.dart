@@ -34,7 +34,7 @@ class NetworkParametersInspector {
   }
 
   Future<void> getAllNetworkInfo(SettingsState settingsState, BuildContext context) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     try {
       if (Platform.isIOS) {
         var status = await Permission.location.status;

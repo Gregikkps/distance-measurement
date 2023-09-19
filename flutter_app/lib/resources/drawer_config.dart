@@ -18,7 +18,7 @@ class DrawerConfig {
   static const double menuScreenWidth = 0.75;
 
   static List<MenuClass> createMainMenu(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return [
       MenuClass(appLocalizations.menuView_distanceMeasurment, Icons.rule, 0),
       MenuClass(appLocalizations.menuView_help, Icons.help_center, 1),

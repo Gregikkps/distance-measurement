@@ -14,7 +14,7 @@ class DistanceUtils {
       return await http.get(AppConfig.distanceUri).timeout(
         AppConfig.timeoutDuration,
         onTimeout: () {
-          return http.Response(AppLocalizations.of(context).global_timeoutError, 408);
+          return http.Response(AppLocalizations.of(context)!.global_timeoutError, 408);
         },
       );
     } catch (e) {

@@ -17,7 +17,7 @@ class SettingsScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color secondaryColor = Theme.of(context).colorScheme.secondary;
     final SettingsState settingsState = Provider.of<SettingsState>(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: CustomAppBar(
