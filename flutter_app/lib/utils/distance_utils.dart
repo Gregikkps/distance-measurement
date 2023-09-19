@@ -59,7 +59,7 @@ class DistanceUtils {
 
   void fetchDistanceDataAndHandleState(BuildContext context) {
     final appState = Provider.of<AppState>(context, listen: false);
-    if (appState.wifiGatewayIP != AppConfig.wifiGatewayIP) {
+    if (appState.wifiGatewayIP != AppConfig.serverGatewayIP) {
       return;
     }
     if (appState.isFetchingData) return;
