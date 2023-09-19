@@ -1,5 +1,44 @@
 {
+  "@@last_modified": "2023-09-19T12:00:00Z",
+  
+  "global_connected": "Połączono",
+  "global_disconnected": "Rozłączono",
+  "global_distance": "Dystans",
+  "global_timeoutError": "Błąd: ClientException z SocketException: Przekroczono limit czasu połączenia (Błąd systemu operacyjnego: Przekroczono limit czasu połączenia, errno = 110)",
+  
+  "menuView_version": "Wersja",
+  "menuView_title": "Menu",
+  "menuView_distanceMeasurment": "Pomiar odległości",
+  "menuView_help": "Pomoc",
+  "menuView_settings": "Ustawienia",
+  "menuView_wifiInfo": "Informacje o Wi-Fi",
+  "menuView_exit": "Wyjście",
 
-"helloWorld": "Witaj Świecie"
+  "distanceView_title": "Pomiar Odległości",
+  "distanceView_cm": "cm",
 
+  "helpView_title": "Pomoc",
+  "helpView_step1": "Krok 1",
+  "helpView_turnOn": "Włącz \"Urządzenie pomiarowe.\" Jeżeli sieć nie jest widoczna, upewnij się, że zasilanie zostało poprawnie podłączone.",
+  "helpView_step2": "Krok 2",
+  "helpView_connectYourPhone": "Połącz swój telefon do sieci \"Urządzenia pomiarowego.\"",
+  "helpView_step3": "Krok 3",  
+  "helpView_goToDistanceView": "Udaj się do widoku \"Pomiar odległości\"  i upewnij się, że na ekranie jest wyświetlony zielony napis \"Połączono\", wskazujący na poprawne połączenie z Urządzeniem pomiarowym.",
+  "helpView_done": "Zrobione!",
+  "helpView_nowYouCanMeasure": "Teraz możesz mierzyć odległość dalmierzem. Pamiętaj, że maksymalny dystans to 350 cm.",
+
+  "settingsView_title": "Ustawienia",
+  "settingsView_customTheme": "Niestandardowy motyw",
+  "settingsView_systemMode": "Systemowy motyw",
+  "settingsView_lightMode": "Jasny motyw",
+  "settingsView_darkMode": "Ciemny motyw",
+  "settingsView_customLanguage": "Niestandardowy język",
+  "settingsView_polish": "Polski",
+  "settingsView_english": "Angielski",
+
+  "wifiInfoView_title": "Informacje o Wi-Fi",
+  "wifiInfoView_distanceDeviceConnectionStatus": "Status połączenia z urządzeniem pomiarowym",
+  "wifiInfoView_lastConnectedWiFiInfo": "Informacje o ostatniej połączonej sieci Wi-Fi",
+
+  "network_parametrs_inspector_wifiName": "Nazwa Wifi"
 }

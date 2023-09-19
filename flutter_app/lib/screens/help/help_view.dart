@@ -1,11 +1,11 @@
 import 'package:distance_measurement_app/components/custom_appbar.dart';
 import 'package:distance_measurement_app/components/custom_background.dart';
 import 'package:distance_measurement_app/resources/app_assets/app_assets.dart';
-import 'package:distance_measurement_app/resources/text/help_text.dart';
 import 'package:distance_measurement_app/resources/theme/app_colors.dart';
 import 'package:distance_measurement_app/screens/help/help.dart';
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HelpScreenView extends StatelessWidget {
   final HelpScreenState state;
@@ -13,10 +13,12 @@ class HelpScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color secondaryColor = Theme.of(context).colorScheme.secondary;
+    final Color secondaryColor = Theme.of(context).colorScheme.secondary;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return Scaffold(
-      appBar: const CustomAppBar(
-        title: Text(HelpText.title),
+      appBar: CustomAppBar(
+        title: Text(appLocalizations.helpView_title),
       ),
       body: Stack(
         children: [
@@ -36,11 +38,11 @@ class HelpScreenView extends StatelessWidget {
                 title: const SizedBox(),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
-                    title: const Text(HelpText.step1),
+                    title: Text(appLocalizations.helpView_step1),
                   ),
                   SettingsTile.navigation(
                     leading: const Icon(Icons.power),
-                    title: const Text(HelpText.turnOnDevice),
+                    title: Text(appLocalizations.helpView_turnOn),
                   ),
                 ],
               ),
@@ -48,11 +50,11 @@ class HelpScreenView extends StatelessWidget {
                 title: const SizedBox(),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
-                    title: const Text(HelpText.step2),
+                    title: Text(appLocalizations.helpView_step2),
                   ),
                   SettingsTile.navigation(
                     leading: const Icon(Icons.wifi),
-                    title: const Text(HelpText.connectYourPhone),
+                    title: Text(appLocalizations.helpView_connectYourPhone),
                   ),
                 ],
               ),
@@ -60,11 +62,11 @@ class HelpScreenView extends StatelessWidget {
                 title: const SizedBox(),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
-                    title: const Text(HelpText.step3),
+                    title: Text(appLocalizations.helpView_step3),
                   ),
                   SettingsTile.navigation(
                     leading: const Icon(Icons.visibility),
-                    title: const Text(HelpText.goToDistanceView),
+                    title: Text(appLocalizations.helpView_goToDistanceView),
                   ),
                 ],
               ),
@@ -72,11 +74,11 @@ class HelpScreenView extends StatelessWidget {
                 title: const SizedBox(),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
-                    title: const Text(HelpText.done),
+                    title: Text(appLocalizations.helpView_done),
                   ),
                   SettingsTile.navigation(
                     leading: const Icon(Icons.straighten),
-                    title: const Text(HelpText.nowYouCanMeasure),
+                    title: Text(appLocalizations.helpView_nowYouCanMeasure),
                   ),
                 ],
               ),

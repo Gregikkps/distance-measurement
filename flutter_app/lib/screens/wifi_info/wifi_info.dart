@@ -14,9 +14,9 @@ class WifiInfoScreen extends StatefulWidget {
 
 class WifiInfoScreenState extends State<WifiInfoScreen> {
   @override
-  void initState() {
+  void didChangeDependencies() {
     NetworkUtils().getAllNetworkInfo(context);
-    super.initState();
+    super.didChangeDependencies();
   }
 
   @override

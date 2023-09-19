@@ -4,15 +4,18 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:distance_measurement_app/provider/settings/settings_state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../provider/app/app_state.dart';
 
 class NetworkParametersInspector {
   String connectionStatus = 'Unknown';
   final NetworkInfo _networkInfo = NetworkInfo();
+
   String? wifiName, wifiBSSID, wifiIPv4, wifiIPv6, wifiGatewayIP, wifiBroadcast, wifiSubmask;
 
   Future<void> getWifiGatewayIP(AppState appState) async {
@@ -30,7 +33,8 @@ class NetworkParametersInspector {
     }
   }
 
-  Future<void> getAllNetworkInfo(SettingsState settingsState) async {
+  Future<void> getAllNetworkInfo(SettingsState settingsState, BuildContext context) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     try {
       if (Platform.isIOS) {
         var status = await Permission.location.status;
@@ -135,7 +139,7 @@ class NetworkParametersInspector {
       wifiSubmask = 'Failed to get Wifi submask';
     }
 
-    connectionStatus = 'Wifi Name: $wifiName\n'
+    connectionStatus = '${appLocalizations.network_parametrs_inspector_wifiName} $wifiName\n'
         'Wifi BSSID: $wifiBSSID\n'
         'Wifi IPv4: $wifiIPv4\n'
         'Wifi IPv6: $wifiIPv6\n'

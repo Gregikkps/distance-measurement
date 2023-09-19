@@ -12,6 +12,6 @@ class NetworkUtils {
 
   void getAllNetworkInfo(BuildContext context) {
     final appState = Provider.of<SettingsState>(context, listen: false);
-    NetworkParametersInspector().getAllNetworkInfo(appState);
+    NetworkParametersInspector().getAllNetworkInfo(appState, context);
   }
 }

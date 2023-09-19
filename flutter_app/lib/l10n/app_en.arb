@@ -1,5 +1,44 @@
 {
+  "@@last_modified": "2023-09-19T12:00:00Z",
+  
+  "global_connected": "Connected",
+  "global_disconnected": "Disconnected",
+  "global_distance": "Distance",
+  "global_timeoutError": "Error: ClientException with SocketException: Connection timed out (OS Error: Connection timed out, errno = 110)",
+  
+  "menuView_version": "Version",
+  "menuView_title": "Menu",
+  "menuView_distanceMeasurment": "Distance Measurment",
+  "menuView_help": "Help",
+  "menuView_settings": "Settings",
+  "menuView_wifiInfo": "Wi-Fi Info",
+  "menuView_exit": "Exit",
+  
+  "distanceView_title": "Distance Measurement",
+  "distanceView_cm": "cm",
 
-"helloWorld": "Hello World"
+  "helpView_title": "Help",
+  "helpView_step1": "Step 1",
+  "helpView_turnOn": "Turn on \"Measurement device.\" If the network is not visible, make sure the power supply is connected correctly.",
+  "helpView_step2": "Step 2",
+  "helpView_connectYourPhone": "Connect your phone to \"Distance Measurement\" network.",
+  "helpView_step3": "Step 3",
+  "helpView_goToDistanceView": "Go to the \"Distance Measurement\" view and make sure the screen displays the text \"Connected\", indicating a successful connection to the Measurement device.",
+  "helpView_done": "Done!",
+  "helpView_nowYouCanMeasure": "Now you can measure distances with the rangefinder. Remember that the maximum distance is 350 cm.",
+  
+  "settingsView_title": "Settings",
+  "settingsView_customTheme": "Custom theme",
+  "settingsView_systemMode": "System mode",
+  "settingsView_lightMode": "Light mode",
+  "settingsView_darkMode": "Dark mode",
+  "settingsView_customLanguage": "Custom language",
+  "settingsView_polish": "Polish",
+  "settingsView_english": "English",
 
+  "wifiInfoView_title": "Wi-Fi Info",
+  "wifiInfoView_distanceDeviceConnectionStatus": "Connection distance device status",
+  "wifiInfoView_lastConnectedWiFiInfo":"Last connected Wi-Fi Info",
+
+  "network_parametrs_inspector_wifiName": "Wi-Fi Name"
 }

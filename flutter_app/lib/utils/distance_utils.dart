@@ -1,20 +1,20 @@
 import 'package:distance_measurement_app/provider/app/app_state.dart';
 import 'package:distance_measurement_app/resources/app_config.dart';
-import 'package:distance_measurement_app/resources/text/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DistanceUtils {
   final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey;
 
   DistanceUtils(this.scaffoldMessengerKey);
-  Future<http.Response> _fetchDataFromServer() async {
+  Future<http.Response> _fetchDataFromServer(BuildContext context) async {
     try {
       return await http.get(AppConfig.distanceUri).timeout(
         AppConfig.timeoutDuration,
         onTimeout: () {
-          return http.Response(AppText.timeoutError, 408);
+          return http.Response(AppLocalizations.of(context).global_timeoutError, 408);
         },
       );
     } catch (e) {
@@ -66,7 +66,7 @@ class DistanceUtils {
 
     appState.setFetchingData();
 
-    _fetchDataFromServer().then((response) {
+    _fetchDataFromServer(context).then((response) {
       if (response.statusCode == 200) {
         _handleSuccessResponse(response, context);
       } else {
