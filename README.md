@@ -13,6 +13,14 @@ This project is an example of integrating an HC-SR04 distance sensor with a Flut
 
 
 
+https://github.com/Gregikkps/distance-measurement/assets/76614984/3afbf835-3a54-4227-823a-383db5316663
+
+
+
+
+
+
+
 
 ## Running Instructions
 
