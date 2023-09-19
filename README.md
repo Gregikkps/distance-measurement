@@ -5,6 +5,15 @@
 
 This project is an example of integrating an HC-SR04 distance sensor with a Flutter mobile application. The HC-SR04 sensor measures the distance from an object and sends the result via an HTTP server provided by the NodeMCU ESP8266 to the Flutter application.
 
+### Screens:
+
+![distance_view](https://github.com/Gregikkps/distance-measurement/assets/76614984/96b54410-0036-421b-a63f-2a2c3cc62239)
+![settings_view](https://github.com/Gregikkps/distance-measurement/assets/76614984/b6add090-7ef5-4a73-a5f6-dd1fea82f4b3)
+![menu_view](https://github.com/Gregikkps/distance-measurement/assets/76614984/cac17e00-0ec4-4dc9-9eab-fd103082ed83)
+
+
+
+
 ## Running Instructions
 
 ### NodeMCU ESP8266
@@ -34,6 +43,8 @@ This project is an example of integrating an HC-SR04 distance sensor with a Flut
 ### Flutter Application
 
 - In the `lib\resources\app_config.dart` file, modify the IP address and wifi gateway IP of the HTTP server to match the NodeMCU ESP8266 configuration.
+
+Example:
 
 ```dart
 static String serverIp = "192.168.4.22"; // NodeMCU ESP8266 IP address
