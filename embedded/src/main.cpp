@@ -48,7 +48,6 @@ void setup()
 
 void loop()
 {
-
   server.handleClient();
   if (Serial.available())
   {
