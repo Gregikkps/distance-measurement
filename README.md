@@ -7,9 +7,13 @@ This project is an example of integrating an HC-SR04 distance sensor with a Flut
 
 ### Screens:
 
-![distance_view](https://github.com/Gregikkps/distance-measurement/assets/76614984/96b54410-0036-421b-a63f-2a2c3cc62239)
-![settings_view](https://github.com/Gregikkps/distance-measurement/assets/76614984/b6add090-7ef5-4a73-a5f6-dd1fea82f4b3)
-![menu_view](https://github.com/Gregikkps/distance-measurement/assets/76614984/cac17e00-0ec4-4dc9-9eab-fd103082ed83)
+![distance_view](https://github.com/Gregikkps/distance-measurement/assets/76614984/2e74aa07-613d-4374-9d4f-d9e334af6136)
+![settings_view](https://github.com/Gregikkps/distance-measurement/assets/76614984/1e8156d1-9658-48ce-8b88-9c67551e640c)
+![menu_view](https://github.com/Gregikkps/distance-measurement/assets/76614984/efd066d5-6c1b-45de-9991-e604f275b66b)
+
+
+https://github.com/Gregikkps/distance-measurement/assets/76614984/2de3128a-1dcf-4318-b4a8-90a37acd24fa
+
 
 
 
@@ -55,4 +59,4 @@ static const String serverGatewayIP = "192.168.4.9"; // NodeMCU ESP8266 HTTP ser
 This project is licensed under the MIT License. For more information, see the LICENSE file.
 
 ### Acknowledgments
-I would like to express our heartfelt gratitude to Gregory, Casper, and Paul for being the driving force behind the creation of this application. Your inspiration, support, and encouragement have been invaluable throughout the development process. This project wouldn't have been the same without your ideas and enthusiasm. Thank you for being a constant source of motivation and for helping us turn this vision into reality. Your contributions have made this journey all the more rewarding, and we are truly thankful for your partnership.
+I would like to express my heartfelt gratitude to Gregory, Casper, and Paul for being the driving force behind the creation of this application. Your inspiration, support, and encouragement have been invaluable throughout the development process. This project wouldn't have been the same without your ideas and enthusiasm. Thank you for being a constant source of motivation and for helping my turn this vision into reality. Your contributions have made this journey all the more rewarding, and I am truly thankful for your partnership.
