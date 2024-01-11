@@ -1,51 +1,23 @@
-import 'package:distance_measurement_app/main.dart';
 import 'package:distance_measurement_app/provider/app/app_state.dart';
 import 'package:distance_measurement_app/provider/menu/menu_state.dart';
 import 'package:distance_measurement_app/provider/settings/settings_state.dart';
 import 'package:distance_measurement_app/resources/theme/theme_data.dart';
 import 'package:distance_measurement_app/screens/distance/distance.dart';
-import 'package:distance_measurement_app/screens/help/help.dart';
-import 'package:distance_measurement_app/screens/home/home.dart';
+import 'package:distance_measurement_app/screens/distance/distance_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'config.dart';
+
 void main() {
-  // testWidgets('Providers initialization', (WidgetTester tester) async {
-  //   await tester.pumpWidget(
-  //     MultiProvider(
-  //       providers: [
-  //         ChangeNotifierProvider<AppState>(create: (_) => AppState()),
-  //         ChangeNotifierProvider<MenuState>(create: (_) => MenuState()),
-  //         ChangeNotifierProvider<SettingsState>(create: (_) => SettingsState()),
-  //       ],
-  //       child: const MyApp(),
-  //     ),
-  //   );
-  // });
+  testGoldens('Counter golden test', (WidgetTester tester) async {
+    await loadAppFonts();
 
-  // testWidgets('Golden Test Example', (WidgetTester tester) async {
-  //   await tester.pumpWidget(
-  //     MultiProvider(
-  //       providers: [
-  //         ChangeNotifierProvider<AppState>(create: (_) => AppState()),
-  //         ChangeNotifierProvider<MenuState>(create: (_) => MenuState()),
-  //         ChangeNotifierProvider<SettingsState>(create: (_) => SettingsState()),
-  //       ],
-  //       child: const MyApp(),
-  //     ),
-  //   );
-
-  //   await expectLater(
-  //     find.byType(MyApp),
-  //     matchesGoldenFile('golden_screen.png'),
-  //   );
-  // });
-
-  testWidgets('Test Home Route', (WidgetTester tester) async {
-    await tester.pumpWidget(
+    await tester.pumpWidgetBuilder(
       MultiProvider(
         providers: [
           ChangeNotifierProvider<AppState>(create: (_) => AppState()),
@@ -68,15 +40,17 @@ void main() {
             Locale('pl'),
           ],
           locale: const Locale('en'),
-          home:  HelpScreen(),
+          home: DistanceScreenView(
+            DistanceScreenState(),
+          ),
         ),
       ),
     );
-    // await tester.pumpAndSettle(const Duration(seconds: 5));
 
-    await expectLater(
-      find.byType(HelpScreen),
-      matchesGoldenFile('distance.png'),
+    await multiScreenGolden(
+      tester,
+      'distance_view',
+      devices: Config.devices,
     );
   });
 }

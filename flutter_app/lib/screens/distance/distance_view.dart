@@ -60,17 +60,24 @@ class _DistanceScreenViewState extends State<DistanceScreenView> {
                       padding: AppSpacing.standardPadding,
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('${appLocalizations.global_distance}:',
-                              style: textTheme.bodyLarge),
-                          Consumer(
-                            builder: (context, value, child) {
-                              return Text(
-                                ' ${appState.distane} ${appLocalizations.distanceView_cm}',
-                                style: textTheme.bodyLarge,
-                              );
-                            },
+                          Flexible(
+                            child: Text(
+                              '${appLocalizations.global_distance}:',
+                              style: textTheme.bodyLarge,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          Flexible(
+                            child: Consumer(
+                              builder: (context, value, child) {
+                                return Text(
+                                  ' ${appState.distane} ${appLocalizations.distanceView_cm}',
+                                  style: textTheme.bodyLarge,
+                                  textAlign: TextAlign.center,
+                                );
+                              },
+                            ),
                           ),
                         ],
                       ),
