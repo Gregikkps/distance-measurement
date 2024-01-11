@@ -14,7 +14,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'config.dart';
 
 void main() {
-  testGoldens('Counter golden test', (WidgetTester tester) async {
+  testGoldens('Distance view golden test', (WidgetTester tester) async {
     await loadAppFonts();
 
     await tester.pumpWidgetBuilder(

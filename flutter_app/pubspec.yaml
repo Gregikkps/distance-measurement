@@ -56,4 +56,9 @@ flutter:
     - assets/menu_background.jpg
     - assets/distance_background.jpg
     - assets/icon.jpg
+  fonts:
+    - family: RaleWay
+      fonts:
+        - asset: assets/fonts/rale_way/static/RaleWay-Regular.ttf
+        - asset: assets/fonts/rale_way/static/RaleWay-Italic.ttf
   
