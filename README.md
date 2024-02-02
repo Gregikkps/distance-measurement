@@ -4,6 +4,7 @@
 **Description:**
 
 This project is an example of integrating an HC-SR04 distance sensor with a Flutter mobile application. The HC-SR04 sensor measures the distance from an object and sends the result via an HTTP server provided by the NodeMCU ESP8266 to the Flutter application.
+Flutter 3.16.9
 
 ### Screens:
 

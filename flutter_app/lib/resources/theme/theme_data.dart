@@ -11,7 +11,6 @@ class CustomThemeData {
     final TextThemeExtension customTextTheme = TextThemeExtension();
 
     return lightThemeData.copyWith(
-      useMaterial3: true,
       colorScheme: ColorScheme.light(
         primary: AppColors().primaryLightColor,
         secondary: AppColors().secondaryLightColor,
@@ -28,7 +27,6 @@ class CustomThemeData {
     final TextThemeExtension customTextTheme = TextThemeExtension();
 
     return darkThemeData.copyWith(
-      useMaterial3: true,
       colorScheme: ColorScheme.dark(
         primary: AppColors().primaryDarkColor,
         secondary: AppColors().secondaryDarkColor,

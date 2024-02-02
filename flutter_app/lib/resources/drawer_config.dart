@@ -29,34 +29,35 @@ class DrawerConfig {
   }
 
   static Widget buildMainScreen(BuildContext context) {
-    final currentPage = context.select<MenuState, int>((provider) => provider.currentPage);
+    final currentPage =
+        context.select<MenuState, int>((provider) => provider.currentPage);
 
     switch (currentPage) {
       case 0:
-        return WillPopScope(
-          onWillPop: () async => false,
+        return PopScope(
+          onPopInvoked: (didPop) => false,
           child: const DistanceScreen(),
         );
       case 1:
-        return WillPopScope(
-          onWillPop: () async => false,
+        return PopScope(
+          onPopInvoked: (didPop) => false,
           child: const HelpScreen(),
         );
       case 2:
-        return WillPopScope(
-          onWillPop: () async => false,
+        return PopScope(
+          onPopInvoked: (didPop) => false,
           child: const SettingsScreen(),
         );
       case 3:
-        return WillPopScope(
-          onWillPop: () async => false,
+        return PopScope(
+          onPopInvoked: (didPop) => false,
           child: const WifiInfoScreen(),
         );
       case 4:
         return exit(0);
       default:
-        return WillPopScope(
-          onWillPop: () async => false,
+        return PopScope(
+          onPopInvoked: (didPop) => false,
           child: const DistanceScreen(),
         );
     }
